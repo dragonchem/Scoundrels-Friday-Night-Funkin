@@ -11,7 +11,7 @@ import flixel.util.FlxColor;
 import lime.utils.Assets;
 
 
-#if desktop
+#if windows
 import Discord.DiscordClient;
 #end
 
@@ -41,8 +41,8 @@ class FreeplayState extends MusicBeatState
 
 		for (i in 0...initSonglist.length)
 		{
-			songs.push(new SongMetadata(initSonglist[i], 1, 'gf'));
-			trace(songs);
+			var data:Array<String> = initSonglist[i].split(':');
+			songs.push(new SongMetadata(data[0], Std.parseInt(data[2]), data[1]));
 		}
 
 		/* 
@@ -53,7 +53,7 @@ class FreeplayState extends MusicBeatState
 			}
 		 */
 
-		 #if desktop
+		 #if windows
 		 // Updating Discord Rich Presence
 		 DiscordClient.changePresence("In the Menus", null);
 		 #end
@@ -63,10 +63,6 @@ class FreeplayState extends MusicBeatState
 		#if debug
 		isDebug = true;
 		#end
-
-			addWeek(['Life Will Change', 'Take Over'], 0, ['kitten']);
-			addWeek(['Mantis Lords'], 1, ['dad']);
-			addWeek(['Cammy', 'Boxer'], 2, ['dad']);
 
 		// LOAD MUSIC
 
@@ -267,7 +263,6 @@ class FreeplayState extends MusicBeatState
 		#end
 
 		#if PRELOAD_ALL
-		Conductor.changeBPM(Song.loadFromJson(Highscore.formatSong(songs[curSelected].songName,0),songs[curSelected].songName.toLowerCase()).bpm);
 		FlxG.sound.playMusic(Paths.inst(songs[curSelected].songName), 0);
 		#end
 

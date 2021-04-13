@@ -1,5 +1,8 @@
 package;
 
+#if windows
+import Discord.DiscordClient;
+#end
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import openfl.Lib;
@@ -31,6 +34,7 @@ class MusicBeatState extends FlxUIState
 
 		super.create();
 	}
+
 
 	var array:Array<FlxColor> = [
 		FlxColor.fromRGB(148, 0, 211),
@@ -65,6 +69,9 @@ class MusicBeatState extends FlxUIState
 			}
 			else
 				skippedFrames++;
+
+		if ((cast (Lib.current.getChildAt(0), Main)).getFPSCap != FlxG.save.data.fpsCap)
+			(cast (Lib.current.getChildAt(0), Main)).setFPSCap(FlxG.save.data.fpsCap);
 
 		super.update(elapsed);
 	}

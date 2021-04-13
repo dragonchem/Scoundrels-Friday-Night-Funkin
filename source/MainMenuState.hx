@@ -14,7 +14,7 @@ import flixel.util.FlxColor;
 import io.newgrounds.NG;
 import lime.app.Application;
 
-#if desktop
+#if windows
 import Discord.DiscordClient;
 #end
 
@@ -36,17 +36,17 @@ class MainMenuState extends MusicBeatState
 	var newGaming2:FlxText;
 	var newInput:Bool = true;
 
-	public static var nightly:String = "-Nightly.3";
+	public static var nightly:String = "-Nightly2";
 
-	public static var kadeEngineVer:String = "1.3.1" + nightly;
-	public static var gameVer:String = "0.2.7.1";
+	public static var kadeEngineVer:String = "1.4.1";
+	public static var gameVer:String = "0.0.2";
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 
 	override function create()
 	{
-		#if desktop
+		#if windows
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
 		#end
@@ -103,7 +103,7 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollow, null, 0.60 * (60 / FlxG.save.data.fpsCap));
 
-		var versionShit:FlxText = new FlxText(5, FlxG.height - 18, 0, gameVer + " FNF - " + kadeEngineVer + " Kade Engine", 12);
+		var versionShit:FlxText = new FlxText(5, FlxG.height - 18, 0, gameVer + " VsScoundrels - " + kadeEngineVer + " Kade Engine", 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);

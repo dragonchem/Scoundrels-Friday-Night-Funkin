@@ -50,6 +50,9 @@ class Note extends FlxSprite
 		y -= 2000;
 		this.strumTime = strumTime;
 
+		if (this.strumTime < 0 )
+			this.strumTime = 0;
+
 		this.noteData = noteData;
 
 		var daStage:String = PlayState.curStage;
@@ -169,7 +172,7 @@ class Note extends FlxSprite
 						prevNote.animation.play('redhold');
 				}
 
-				prevNote.scale.y *= Conductor.stepCrochet / 100 * 1.8 * PlayState.SONG.speed;
+				prevNote.scale.y *= Conductor.stepCrochet / 100 * 1.8 * FlxG.save.data.scrollSpeed;
 				prevNote.updateHitbox();
 				// prevNote.setGraphicSize();
 			}

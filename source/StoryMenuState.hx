@@ -13,7 +13,7 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.net.curl.CURLCode;
 
-#if desktop
+#if windows
 import Discord.DiscordClient;
 #end
 
@@ -24,7 +24,8 @@ class StoryMenuState extends MusicBeatState
 	var scoreText:FlxText;
 
 	var weekData:Array<Dynamic> = [
-		['Life Will Change', 'Take Over'],
+		['Tutorial'],
+		['Life Will Change', 'Take Over', 'Dance'],
 		['Mantis Lords'],
 		['Cammy', 'Boxer']
 	];
@@ -33,12 +34,14 @@ class StoryMenuState extends MusicBeatState
 	public static var weekUnlocked:Array<Bool> = [true, true, true];
 
 	var weekCharacters:Array<Dynamic> = [
+		['', 'bf', 'gf'],
 		['kitten', 'bf', 'gf'],
 		['dad', 'bf', 'gf'],
 		['dad', 'bf', 'gf'],
 	];
 
 	var weekNames:Array<String> = [
+		"How To Funk",
 		"Average Persona Fan",
 		"German Twat",
 		"Gremlin"
@@ -62,7 +65,7 @@ class StoryMenuState extends MusicBeatState
 
 	override function create()
 	{
-		#if desktop
+		#if windows
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
 		#end
