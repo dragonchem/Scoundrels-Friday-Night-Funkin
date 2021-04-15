@@ -2,3 +2,7 @@ Tutorial:gf:0
 Life Will Change:kitten:1
 Take Over:kitten:1
 Dance:kitten:1
+Boxer:dad:2
+Cammy:dad:2
+Mantis Lords:dad:3
+Vitality:dad:4
