@@ -21,7 +21,7 @@ class Credits extends MusicBeatState
 {
 	private var grpControls:FlxTypedGroup<Alphabet>;
     private var credits:Array<Credit> = new Array<Credit>();
-	var curSelected:Int = 0;
+	var curSelected:Int = 1;
     override function create()
     {
         credits.push(new Credit('a mod by', false, ''));
@@ -60,6 +60,7 @@ class Credits extends MusicBeatState
         }
 
         super.create();
+        changeSelection(0);
     }
 
     override function update(elapsed:Float)
@@ -102,13 +103,8 @@ class Credits extends MusicBeatState
 
         trace(credits[curSelected].getName());
 
-        if (credits[curSelected].getName() == '') {
-            curSelected += change;
-
-            if (curSelected < 0)
-                curSelected = grpControls.length - 1;
-            if (curSelected >= grpControls.length)
-                curSelected = 0;
+        if (!credits[curSelected].getClickable()) {
+            changeSelection(change);
         }
 
         // selector.y = (70 * curSelected) + 30;
