@@ -55,6 +55,7 @@ class Credits extends MusicBeatState
             var controlLabel:Alphabet = new Alphabet(0, credits[i].getClickable()? (70 * i) + 30 : (70 * i), credits[i].getName(), !credits[i].getClickable(), false);
             controlLabel.isMenuItem = true;
             controlLabel.targetY = i;
+            controlLabel.credit = !credits[i].getClickable();
             grpControls.add(controlLabel);
             trace(controlLabel);
         }
@@ -119,7 +120,7 @@ class Credits extends MusicBeatState
             item.alpha = 0.6;
             // item.setGraphicSize(Std.int(item.width * 0.8));
 
-            if (item.targetY == 0)
+            if (item.targetY == 0 || item.credit)
             {
                 item.alpha = 1;
                 // item.setGraphicSize(Std.int(item.width));
