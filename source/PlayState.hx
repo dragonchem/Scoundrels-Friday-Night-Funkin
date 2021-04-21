@@ -2328,11 +2328,11 @@ class PlayState extends MusicBeatState
 		if (FlxG.keys.justPressed.EIGHT)
 		{
 			FlxG.switchState(new AnimationDebug(SONG.player2));
-			if (lua != null)
-			{
-				Lua.close(lua);
-				lua = null;
-			}
+			// if (lua != null)
+			// {
+			// 	Lua.close(lua);
+			// 	lua = null;
+			// }
 		}
 		
 		#end
