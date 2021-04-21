@@ -8,10 +8,10 @@ import flixel.graphics.FlxGraphic;
 import openfl.utils.AssetManifest;
 import openfl.utils.AssetLibrary;
 import flixel.system.FlxAssets;
-import llua.Convert;
-import llua.Lua;
-import llua.State;
-import llua.LuaL;
+// import llua.Convert;
+// import llua.Lua;
+// import llua.State;
+// import llua.LuaL;
 import lime.app.Application;
 import lime.media.AudioContext;
 import lime.media.AudioManager;
@@ -206,52 +206,52 @@ class PlayState extends MusicBeatState
 
 	// LUA SHIT
 		
-	public static var lua:State = null;
+	// public static var lua:State = null;
 
-	function callLua(func_name : String, args : Array<Dynamic>, ?type : String) : Dynamic
-	{
-		var result : Any = null;
+	// function callLua(func_name : String, args : Array<Dynamic>, ?type : String) : Dynamic
+	// {
+	// 	var result : Any = null;
 
-		Lua.getglobal(lua, func_name);
+	// 	Lua.getglobal(lua, func_name);
 
-		for( arg in args ) {
-		Convert.toLua(lua, arg);
-		}
+	// 	for( arg in args ) {
+	// 	Convert.toLua(lua, arg);
+	// 	}
 
-		result = Lua.pcall(lua, args.length, 1, 0);
+	// 	result = Lua.pcall(lua, args.length, 1, 0);
 
-		if (getLuaErrorMessage(lua) != null)
-			trace(func_name + ' LUA CALL ERROR ' + Lua.tostring(lua,result));
+	// 	if (getLuaErrorMessage(lua) != null)
+	// 		trace(func_name + ' LUA CALL ERROR ' + Lua.tostring(lua,result));
 
-		if( result == null) {
-			return null;
-		} else {
-			return convert(result, type);
-		}
+	// 	if( result == null) {
+	// 		return null;
+	// 	} else {
+	// 		return convert(result, type);
+	// 	}
 
-	}
+	// }
 
-	function getType(l, type):Any
-	{
-		return switch Lua.type(l,type) {
-			case t if (t == Lua.LUA_TNIL): null;
-			case t if (t == Lua.LUA_TNUMBER): Lua.tonumber(l, type);
-			case t if (t == Lua.LUA_TSTRING): (Lua.tostring(l, type):String);
-			case t if (t == Lua.LUA_TBOOLEAN): Lua.toboolean(l, type);
-			case t: throw 'you don goofed up. lua type error ($t)';
-		}
-	}
+	// function getType(l, type):Any
+	// {
+	// 	return switch Lua.type(l,type) {
+	// 		case t if (t == Lua.LUA_TNIL): null;
+	// 		case t if (t == Lua.LUA_TNUMBER): Lua.tonumber(l, type);
+	// 		case t if (t == Lua.LUA_TSTRING): (Lua.tostring(l, type):String);
+	// 		case t if (t == Lua.LUA_TBOOLEAN): Lua.toboolean(l, type);
+	// 		case t: throw 'you don goofed up. lua type error ($t)';
+	// 	}
+	// }
 
-	function getReturnValues(l) {
-		var lua_v:Int;
-		var v:Any = null;
-		while((lua_v = Lua.gettop(l)) != 0) {
-			var type:String = getType(l,lua_v);
-			v = convert(lua_v, type);
-			Lua.pop(l, 1);
-		}
-		return v;
-	}
+	// function getReturnValues(l) {
+	// 	var lua_v:Int;
+	// 	var v:Any = null;
+	// 	while((lua_v = Lua.gettop(l)) != 0) {
+	// 		var type:String = getType(l,lua_v);
+	// 		v = convert(lua_v, type);
+	// 		Lua.pop(l, 1);
+	// 	}
+	// 	return v;
+	// }
 
 
 	private function convert(v : Any, type : String) : Dynamic { // I didn't write this lol
@@ -298,36 +298,36 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-	function getLuaErrorMessage(l) {
-		var v:String = Lua.tostring(l, -1);
-		Lua.pop(l, 1);
-		return v;
-	}
+	// function getLuaErrorMessage(l) {
+	// 	var v:String = Lua.tostring(l, -1);
+	// 	Lua.pop(l, 1);
+	// 	return v;
+	// }
 
-	public function setVar(var_name : String, object : Dynamic){
-		// trace('setting variable ' + var_name + ' to ' + object);
+	// public function setVar(var_name : String, object : Dynamic){
+	// 	// trace('setting variable ' + var_name + ' to ' + object);
 
-		Lua.pushnumber(lua,object);
-		Lua.setglobal(lua, var_name);
-	}
+	// 	Lua.pushnumber(lua,object);
+	// 	Lua.setglobal(lua, var_name);
+	// }
 
-	public function getVar(var_name : String, type : String) : Dynamic {
-		var result : Any = null;
+	// public function getVar(var_name : String, type : String) : Dynamic {
+	// 	var result : Any = null;
 
-		// trace('getting variable ' + var_name + ' with a type of ' + type);
+	// 	// trace('getting variable ' + var_name + ' with a type of ' + type);
 
-		Lua.getglobal(lua, var_name);
-		result = Convert.fromLua(lua,-1);
-		Lua.pop(lua,1);
+	// 	Lua.getglobal(lua, var_name);
+	// 	result = Convert.fromLua(lua,-1);
+	// 	Lua.pop(lua,1);
 
-		if( result == null ) {
-		return null;
-		} else {
-		var result = convert(result, type);
-		//trace(var_name + ' result: ' + result);
-		return result;
-		}
-	}
+	// 	if( result == null ) {
+	// 	return null;
+	// 	} else {
+	// 	var result = convert(result, type);
+	// 	//trace(var_name + ' result: ' + result);
+	// 	return result;
+	// 	}
+	// }
 
 	function getActorByName(id:String):Dynamic
 	{
@@ -1338,251 +1338,251 @@ class PlayState extends MusicBeatState
 		generateStaticArrows(1);
 
 
-		if (executeModchart) // dude I hate lua (jkjkjkjk)
-			{
-				trace('opening a lua state (because we are cool :))');
-				lua = LuaL.newstate();
-				LuaL.openlibs(lua);
-				trace("Lua version: " + Lua.version());
-				trace("LuaJIT version: " + Lua.versionJIT());
-				Lua.init_callbacks(lua);
+		// if (executeModchart) // dude I hate lua (jkjkjkjk)
+		// 	{
+		// 		trace('opening a lua state (because we are cool :))');
+		// 		lua = LuaL.newstate();
+		// 		LuaL.openlibs(lua);
+		// 		trace("Lua version: " + Lua.version());
+		// 		trace("LuaJIT version: " + Lua.versionJIT());
+		// 		Lua.init_callbacks(lua);
 				
-				var result = LuaL.dofile(lua, Paths.lua(PlayState.SONG.song.toLowerCase() + "/modchart")); // execute le file
+		// 		var result = LuaL.dofile(lua, Paths.lua(PlayState.SONG.song.toLowerCase() + "/modchart")); // execute le file
 	
-				if (result != 0)
-					trace('COMPILE ERROR\n' + getLuaErrorMessage(lua));
+		// 		if (result != 0)
+		// 			trace('COMPILE ERROR\n' + getLuaErrorMessage(lua));
 
-				// get some fukin globals up in here bois
+		// 		// get some fukin globals up in here bois
 	
-				setVar("bpm", Conductor.bpm);
-				setVar("fpsCap", FlxG.save.data.fpsCap);
-				setVar("downscroll", FlxG.save.data.downscroll);
+		// 		setVar("bpm", Conductor.bpm);
+		// 		setVar("fpsCap", FlxG.save.data.fpsCap);
+		// 		setVar("downscroll", FlxG.save.data.downscroll);
 	
-				setVar("curStep", 0);
-				setVar("curBeat", 0);
+		// 		setVar("curStep", 0);
+		// 		setVar("curBeat", 0);
 	
-				setVar("hudZoom", camHUD.zoom);
-				setVar("cameraZoom", FlxG.camera.zoom);
+		// 		setVar("hudZoom", camHUD.zoom);
+		// 		setVar("cameraZoom", FlxG.camera.zoom);
 	
-				setVar("cameraAngle", FlxG.camera.angle);
-				setVar("camHudAngle", camHUD.angle);
+		// 		setVar("cameraAngle", FlxG.camera.angle);
+		// 		setVar("camHudAngle", camHUD.angle);
 	
-				setVar("followXOffset",0);
-				setVar("followYOffset",0);
+		// 		setVar("followXOffset",0);
+		// 		setVar("followYOffset",0);
 	
-				setVar("showOnlyStrums", false);
-				setVar("strumLine1Visible", true);
-				setVar("strumLine2Visible", true);
+		// 		setVar("showOnlyStrums", false);
+		// 		setVar("strumLine1Visible", true);
+		// 		setVar("strumLine2Visible", true);
 	
-				setVar("screenWidth",FlxG.width);
-				setVar("screenHeight",FlxG.height);
-				setVar("hudWidth", camHUD.width);
-				setVar("hudHeight", camHUD.height);
+		// 		setVar("screenWidth",FlxG.width);
+		// 		setVar("screenHeight",FlxG.height);
+		// 		setVar("hudWidth", camHUD.width);
+		// 		setVar("hudHeight", camHUD.height);
 	
-				// callbacks
+		// 		// callbacks
 	
-				// sprites
+		// 		// sprites
 	
-				trace(Lua_helper.add_callback(lua,"makeSprite", makeLuaSprite));
+		// 		trace(Lua_helper.add_callback(lua,"makeSprite", makeLuaSprite));
 	
-				Lua_helper.add_callback(lua,"destroySprite", function(id:String) {
-					var sprite = luaSprites.get(id);
-					if (sprite == null)
-						return false;
-					remove(sprite);
-					return true;
-				});
+		// 		Lua_helper.add_callback(lua,"destroySprite", function(id:String) {
+		// 			var sprite = luaSprites.get(id);
+		// 			if (sprite == null)
+		// 				return false;
+		// 			remove(sprite);
+		// 			return true;
+		// 		});
 	
-				// hud/camera
+		// 		// hud/camera
 	
-				trace(Lua_helper.add_callback(lua,"setHudPosition", function (x:Int, y:Int) {
-					camHUD.x = x;
-					camHUD.y = y;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"setHudPosition", function (x:Int, y:Int) {
+		// 			camHUD.x = x;
+		// 			camHUD.y = y;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"getHudX", function () {
-					return camHUD.x;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"getHudX", function () {
+		// 			return camHUD.x;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"getHudY", function () {
-					return camHUD.y;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"getHudY", function () {
+		// 			return camHUD.y;
+		// 		}));
 				
-				trace(Lua_helper.add_callback(lua,"setCamPosition", function (x:Int, y:Int) {
-					FlxG.camera.x = x;
-					FlxG.camera.y = y;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"setCamPosition", function (x:Int, y:Int) {
+		// 			FlxG.camera.x = x;
+		// 			FlxG.camera.y = y;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"getCameraX", function () {
-					return FlxG.camera.x;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"getCameraX", function () {
+		// 			return FlxG.camera.x;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"getCameraY", function () {
-					return FlxG.camera.y;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"getCameraY", function () {
+		// 			return FlxG.camera.y;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"setCamZoom", function(zoomAmount:Int) {
-					FlxG.camera.zoom = zoomAmount;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"setCamZoom", function(zoomAmount:Int) {
+		// 			FlxG.camera.zoom = zoomAmount;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"setHudZoom", function(zoomAmount:Int) {
-					camHUD.zoom = zoomAmount;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"setHudZoom", function(zoomAmount:Int) {
+		// 			camHUD.zoom = zoomAmount;
+		// 		}));
 	
-				// actors
+		// 		// actors
 				
-				trace(Lua_helper.add_callback(lua,"getRenderedNotes", function() {
-					return notes.length;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"getRenderedNotes", function() {
+		// 			return notes.length;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"getRenderedNoteX", function(id:Int) {
-					return notes.members[id].x;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"getRenderedNoteX", function(id:Int) {
+		// 			return notes.members[id].x;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"getRenderedNoteY", function(id:Int) {
-					return notes.members[id].y;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"getRenderedNoteY", function(id:Int) {
+		// 			return notes.members[id].y;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"getRenderedNoteScaleX", function(id:Int) {
-					return notes.members[id].scale.x;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"getRenderedNoteScaleX", function(id:Int) {
+		// 			return notes.members[id].scale.x;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"getRenderedNoteScaleY", function(id:Int) {
-					return notes.members[id].scale.y;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"getRenderedNoteScaleY", function(id:Int) {
+		// 			return notes.members[id].scale.y;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"getRenderedNoteAlpha", function(id:Int) {
-					return notes.members[id].alpha;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"getRenderedNoteAlpha", function(id:Int) {
+		// 			return notes.members[id].alpha;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"setRenderedNotePos", function(x:Int,y:Int, id:Int) {
-					notes.members[id].modifiedByLua = true;
-					notes.members[id].x = x;
-					notes.members[id].y = y;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"setRenderedNotePos", function(x:Int,y:Int, id:Int) {
+		// 			notes.members[id].modifiedByLua = true;
+		// 			notes.members[id].x = x;
+		// 			notes.members[id].y = y;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"setRenderedNoteAlpha", function(alpha:Float, id:Int) {
-					notes.members[id].modifiedByLua = true;
-					notes.members[id].alpha = alpha;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"setRenderedNoteAlpha", function(alpha:Float, id:Int) {
+		// 			notes.members[id].modifiedByLua = true;
+		// 			notes.members[id].alpha = alpha;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"setRenderedNoteScale", function(scale:Float, id:Int) {
-					notes.members[id].modifiedByLua = true;
-					notes.members[id].setGraphicSize(Std.int(notes.members[id].width * scale));
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"setRenderedNoteScale", function(scale:Float, id:Int) {
+		// 			notes.members[id].modifiedByLua = true;
+		// 			notes.members[id].setGraphicSize(Std.int(notes.members[id].width * scale));
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"setRenderedNoteScaleX", function(scale:Float, id:Int) {
-					notes.members[id].modifiedByLua = true;
-					notes.members[id].scale.x = scale;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"setRenderedNoteScaleX", function(scale:Float, id:Int) {
+		// 			notes.members[id].modifiedByLua = true;
+		// 			notes.members[id].scale.x = scale;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"setRenderedNoteScaleY", function(scale:Float, id:Int) {
-					notes.members[id].modifiedByLua = true;
-					notes.members[id].scale.y = scale;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"setRenderedNoteScaleY", function(scale:Float, id:Int) {
+		// 			notes.members[id].modifiedByLua = true;
+		// 			notes.members[id].scale.y = scale;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"setActorX", function(x:Int,id:String) {
-					getActorByName(id).x = x;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"setActorX", function(x:Int,id:String) {
+		// 			getActorByName(id).x = x;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"setActorAlpha", function(alpha:Int,id:String) {
-					getActorByName(id).alpha = alpha;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"setActorAlpha", function(alpha:Int,id:String) {
+		// 			getActorByName(id).alpha = alpha;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"setActorY", function(y:Int,id:String) {
-					getActorByName(id).y = y;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"setActorY", function(y:Int,id:String) {
+		// 			getActorByName(id).y = y;
+		// 		}));
 							
-				trace(Lua_helper.add_callback(lua,"setActorAngle", function(angle:Int,id:String) {
-					getActorByName(id).angle = angle;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"setActorAngle", function(angle:Int,id:String) {
+		// 			getActorByName(id).angle = angle;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"setActorScale", function(scale:Float,id:String) {
-					getActorByName(id).setGraphicSize(Std.int(getActorByName(id).width * scale));
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"setActorScale", function(scale:Float,id:String) {
+		// 			getActorByName(id).setGraphicSize(Std.int(getActorByName(id).width * scale));
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"setActorScaleX", function(scale:Float,id:String) {
-					getActorByName(id).scale.x = scale;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"setActorScaleX", function(scale:Float,id:String) {
+		// 			getActorByName(id).scale.x = scale;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"setActorScaleY", function(scale:Float,id:String) {
-					getActorByName(id).scale.y = scale;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"setActorScaleY", function(scale:Float,id:String) {
+		// 			getActorByName(id).scale.y = scale;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"getActorWidth", function (id:String) {
-					return getActorByName(id).width;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"getActorWidth", function (id:String) {
+		// 			return getActorByName(id).width;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"getActorHeight", function (id:String) {
-					return getActorByName(id).height;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"getActorHeight", function (id:String) {
+		// 			return getActorByName(id).height;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"getActorAlpha", function(id:String) {
-					return getActorByName(id).alpha;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"getActorAlpha", function(id:String) {
+		// 			return getActorByName(id).alpha;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"getActorAngle", function(id:String) {
-					return getActorByName(id).angle;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"getActorAngle", function(id:String) {
+		// 			return getActorByName(id).angle;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"getActorX", function (id:String) {
-					return getActorByName(id).x;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"getActorX", function (id:String) {
+		// 			return getActorByName(id).x;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"getActorY", function (id:String) {
-					return getActorByName(id).y;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"getActorY", function (id:String) {
+		// 			return getActorByName(id).y;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"getActorScaleX", function (id:String) {
-					return getActorByName(id).scale.x;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"getActorScaleX", function (id:String) {
+		// 			return getActorByName(id).scale.x;
+		// 		}));
 	
-				trace(Lua_helper.add_callback(lua,"getActorScaleY", function (id:String) {
-					return getActorByName(id).scale.y;
-				}));
+		// 		trace(Lua_helper.add_callback(lua,"getActorScaleY", function (id:String) {
+		// 			return getActorByName(id).scale.y;
+		// 		}));
 	
-				// tweens
+		// 		// tweens
 				
-				Lua_helper.add_callback(lua,"tweenPos", function(id:String, toX:Int, toY:Int, time:Float, onComplete:String) {
-					FlxTween.tween(getActorByName(id), {x: toX, y: toY}, time, {ease: FlxEase.cubeIn, onComplete: function(flxTween:FlxTween) { if (onComplete != '' && onComplete != null) {callLua(onComplete,[id]);}}});
-				});
+		// 		Lua_helper.add_callback(lua,"tweenPos", function(id:String, toX:Int, toY:Int, time:Float, onComplete:String) {
+		// 			FlxTween.tween(getActorByName(id), {x: toX, y: toY}, time, {ease: FlxEase.cubeIn, onComplete: function(flxTween:FlxTween) { if (onComplete != '' && onComplete != null) {callLua(onComplete,[id]);}}});
+		// 		});
 	
-				Lua_helper.add_callback(lua,"tweenPosXAngle", function(id:String, toX:Int, toAngle:Float, time:Float, onComplete:String) {
-					FlxTween.tween(getActorByName(id), {x: toX, angle: toAngle}, time, {ease: FlxEase.cubeIn, onComplete: function(flxTween:FlxTween) { if (onComplete != '' && onComplete != null) {callLua(onComplete,[id]);}}});
-				});
+		// 		Lua_helper.add_callback(lua,"tweenPosXAngle", function(id:String, toX:Int, toAngle:Float, time:Float, onComplete:String) {
+		// 			FlxTween.tween(getActorByName(id), {x: toX, angle: toAngle}, time, {ease: FlxEase.cubeIn, onComplete: function(flxTween:FlxTween) { if (onComplete != '' && onComplete != null) {callLua(onComplete,[id]);}}});
+		// 		});
 	
-				Lua_helper.add_callback(lua,"tweenPosYAngle", function(id:String, toY:Int, toAngle:Float, time:Float, onComplete:String) {
-					FlxTween.tween(getActorByName(id), {y: toY, angle: toAngle}, time, {ease: FlxEase.cubeIn, onComplete: function(flxTween:FlxTween) { if (onComplete != '' && onComplete != null) {callLua(onComplete,[id]);}}});
-				});
+		// 		Lua_helper.add_callback(lua,"tweenPosYAngle", function(id:String, toY:Int, toAngle:Float, time:Float, onComplete:String) {
+		// 			FlxTween.tween(getActorByName(id), {y: toY, angle: toAngle}, time, {ease: FlxEase.cubeIn, onComplete: function(flxTween:FlxTween) { if (onComplete != '' && onComplete != null) {callLua(onComplete,[id]);}}});
+		// 		});
 	
-				Lua_helper.add_callback(lua,"tweenAngle", function(id:String, toAngle:Int, time:Float, onComplete:String) {
-					FlxTween.tween(getActorByName(id), {angle: toAngle}, time, {ease: FlxEase.cubeIn, onComplete: function(flxTween:FlxTween) { if (onComplete != '' && onComplete != null) {callLua(onComplete,[id]);}}});
-				});
+		// 		Lua_helper.add_callback(lua,"tweenAngle", function(id:String, toAngle:Int, time:Float, onComplete:String) {
+		// 			FlxTween.tween(getActorByName(id), {angle: toAngle}, time, {ease: FlxEase.cubeIn, onComplete: function(flxTween:FlxTween) { if (onComplete != '' && onComplete != null) {callLua(onComplete,[id]);}}});
+		// 		});
 	
-				Lua_helper.add_callback(lua,"tweenFadeIn", function(id:String, toAlpha:Int, time:Float, onComplete:String) {
-					FlxTween.tween(getActorByName(id), {alpha: toAlpha}, time, {ease: FlxEase.circIn, onComplete: function(flxTween:FlxTween) { if (onComplete != '' && onComplete != null) {callLua(onComplete,[id]);}}});
-				});
+		// 		Lua_helper.add_callback(lua,"tweenFadeIn", function(id:String, toAlpha:Int, time:Float, onComplete:String) {
+		// 			FlxTween.tween(getActorByName(id), {alpha: toAlpha}, time, {ease: FlxEase.circIn, onComplete: function(flxTween:FlxTween) { if (onComplete != '' && onComplete != null) {callLua(onComplete,[id]);}}});
+		// 		});
 	
-				Lua_helper.add_callback(lua,"tweenFadeOut", function(id:String, toAlpha:Int, time:Float, onComplete:String) {
-					FlxTween.tween(getActorByName(id), {alpha: toAlpha}, time, {ease: FlxEase.circOut, onComplete: function(flxTween:FlxTween) { if (onComplete != '' && onComplete != null) {callLua(onComplete,[id]);}}});
-				});
+		// 		Lua_helper.add_callback(lua,"tweenFadeOut", function(id:String, toAlpha:Int, time:Float, onComplete:String) {
+		// 			FlxTween.tween(getActorByName(id), {alpha: toAlpha}, time, {ease: FlxEase.circOut, onComplete: function(flxTween:FlxTween) { if (onComplete != '' && onComplete != null) {callLua(onComplete,[id]);}}});
+		// 		});
 	
-				for (i in 0...strumLineNotes.length) {
-					var member = strumLineNotes.members[i];
-					trace(strumLineNotes.members[i].x + " " + strumLineNotes.members[i].y + " " + strumLineNotes.members[i].angle + " | strum" + i);
-					//setVar("strum" + i + "X", Math.floor(member.x));
-					setVar("defaultStrum" + i + "X", Math.floor(member.x));
-					//setVar("strum" + i + "Y", Math.floor(member.y));
-					setVar("defaultStrum" + i + "Y", Math.floor(member.y));
-					//setVar("strum" + i + "Angle", Math.floor(member.angle));
-					setVar("defaultStrum" + i + "Angle", Math.floor(member.angle));
-					trace("Adding strum" + i);
-				}
+		// 		for (i in 0...strumLineNotes.length) {
+		// 			var member = strumLineNotes.members[i];
+		// 			trace(strumLineNotes.members[i].x + " " + strumLineNotes.members[i].y + " " + strumLineNotes.members[i].angle + " | strum" + i);
+		// 			//setVar("strum" + i + "X", Math.floor(member.x));
+		// 			setVar("defaultStrum" + i + "X", Math.floor(member.x));
+		// 			//setVar("strum" + i + "Y", Math.floor(member.y));
+		// 			setVar("defaultStrum" + i + "Y", Math.floor(member.y));
+		// 			//setVar("strum" + i + "Angle", Math.floor(member.angle));
+		// 			setVar("defaultStrum" + i + "Angle", Math.floor(member.angle));
+		// 			trace("Adding strum" + i);
+		// 		}
 	
-				trace('calling start function');
+		// 		trace('calling start function');
 	
-				trace('return: ' + Lua.tostring(lua,callLua('start', [PlayState.SONG.song])));
-			}
+		// 		trace('return: ' + Lua.tostring(lua,callLua('start', [PlayState.SONG.song])));
+		// 	}
 
 		talking = false;
 		startedCountdown = true;
@@ -2161,52 +2161,52 @@ class PlayState extends MusicBeatState
 		perfectMode = false;
 		#end
 
-		if (executeModchart && lua != null && songStarted)
-		{
-			setVar('songPos',Conductor.songPosition);
-			setVar('hudZoom', camHUD.zoom);
-			setVar('cameraZoom',FlxG.camera.zoom);
-			callLua('update', [elapsed]);
+		// if (executeModchart && lua != null && songStarted)
+		// {
+		// 	setVar('songPos',Conductor.songPosition);
+		// 	setVar('hudZoom', camHUD.zoom);
+		// 	setVar('cameraZoom',FlxG.camera.zoom);
+		// 	callLua('update', [elapsed]);
 
-			/*for (i in 0...strumLineNotes.length) {
-				var member = strumLineNotes.members[i];
-				member.x = getVar("strum" + i + "X", "float");
-				member.y = getVar("strum" + i + "Y", "float");
-				member.angle = getVar("strum" + i + "Angle", "float");
-			}*/
+		// 	/*for (i in 0...strumLineNotes.length) {
+		// 		var member = strumLineNotes.members[i];
+		// 		member.x = getVar("strum" + i + "X", "float");
+		// 		member.y = getVar("strum" + i + "Y", "float");
+		// 		member.angle = getVar("strum" + i + "Angle", "float");
+		// 	}*/
 
-			FlxG.camera.angle = getVar('cameraAngle', 'float');
-			camHUD.angle = getVar('camHudAngle','float');
+		// 	FlxG.camera.angle = getVar('cameraAngle', 'float');
+		// 	camHUD.angle = getVar('camHudAngle','float');
 
-			if (getVar("showOnlyStrums",'bool'))
-			{
-				healthBarBG.visible = false;
-				kadeEngineWatermark.visible = false;
-				healthBar.visible = false;
-				iconP1.visible = false;
-				iconP2.visible = false;
-				scoreTxt.visible = false;
-			}
-			else
-			{
-				healthBarBG.visible = true;
-				kadeEngineWatermark.visible = true;
-				healthBar.visible = true;
-				iconP1.visible = true;
-				iconP2.visible = true;
-				scoreTxt.visible = true;
-			}
+		// 	if (getVar("showOnlyStrums",'bool'))
+		// 	{
+		// 		healthBarBG.visible = false;
+		// 		kadeEngineWatermark.visible = false;
+		// 		healthBar.visible = false;
+		// 		iconP1.visible = false;
+		// 		iconP2.visible = false;
+		// 		scoreTxt.visible = false;
+		// 	}
+		// 	else
+		// 	{
+		// 		healthBarBG.visible = true;
+		// 		kadeEngineWatermark.visible = true;
+		// 		healthBar.visible = true;
+		// 		iconP1.visible = true;
+		// 		iconP2.visible = true;
+		// 		scoreTxt.visible = true;
+		// 	}
 
-			var p1 = getVar("strumLine1Visible",'bool');
-			var p2 = getVar("strumLine2Visible",'bool');
+		// 	var p1 = getVar("strumLine1Visible",'bool');
+		// 	var p2 = getVar("strumLine2Visible",'bool');
 
-			for (i in 0...4)
-			{
-				strumLineNotes.members[i].visible = p1;
-				if (i <= playerStrums.length)
-					playerStrums.members[i].visible = p2;
-			}
-		}
+		// 	for (i in 0...4)
+		// 	{
+		// 		strumLineNotes.members[i].visible = p1;
+		// 		if (i <= playerStrums.length)
+		// 			playerStrums.members[i].visible = p2;
+		// 	}
+		// }
 
 		if (currentFrames == FlxG.save.data.fpsCap)
 		{
@@ -2287,11 +2287,11 @@ class PlayState extends MusicBeatState
 			DiscordClient.changePresence("Chart Editor", null, null, true);
 			#end
 			FlxG.switchState(new ChartingState());
-			if (lua != null)
-			{
-				Lua.close(lua);
-				lua = null;
-			}
+			// if (lua != null)
+			// {
+			// 	Lua.close(lua);
+			// 	lua = null;
+			// }
 		}
 
 		// FlxG.watch.addQuick('VOL', vocals.amplitudeLeft);
@@ -2474,7 +2474,7 @@ class PlayState extends MusicBeatState
 			
 			if (camFollow.x != dad.getMidpoint().x + 150 && !PlayState.SONG.notes[Std.int(curStep / 16)].mustHitSection)
 			{
-				camFollow.setPosition(dad.getMidpoint().x + 150 + (lua != null ? getVar("followXOffset", "float") : 0), dad.getMidpoint().y - 100 + (lua != null ? getVar("followYOffset", "float") : 0));
+				camFollow.setPosition(dad.getMidpoint().x + 150, dad.getMidpoint().y - 100);
 				// camFollow.setPosition(lucky.getMidpoint().x - 120, lucky.getMidpoint().y + 210);
 
 				switch (dad.curCharacter)
@@ -2500,7 +2500,7 @@ class PlayState extends MusicBeatState
 
 			if (PlayState.SONG.notes[Std.int(curStep / 16)].mustHitSection && camFollow.x != boyfriend.getMidpoint().x - 100)
 			{
-				camFollow.setPosition(boyfriend.getMidpoint().x - 100 + (lua != null ? getVar("followXOffset", "float") : 0), boyfriend.getMidpoint().y - 100 + (lua != null ? getVar("followYOffset", "float") : 0));
+				camFollow.setPosition(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
 
 				switch (curStage)
 				{
@@ -2727,11 +2727,11 @@ class PlayState extends MusicBeatState
 		if (!loadRep)
 			rep.SaveReplay();
 
-		if (executeModchart)
-		{
-			Lua.close(lua);
-			lua = null;
-		}
+		// if (executeModchart)
+		// {
+		// 	Lua.close(lua);
+		// 	lua = null;
+		// }
 
 		canPause = false;
 		FlxG.sound.music.volume = 0;
@@ -2767,11 +2767,11 @@ class PlayState extends MusicBeatState
 
 					FlxG.switchState(new StoryMenuState());
 
-					if (lua != null)
-					{
-						Lua.close(lua);
-						lua = null;
-					}
+					// if (lua != null)
+					// {
+					// 	Lua.close(lua);
+					// 	lua = null;
+					// }
 
 					// if ()
 					StoryMenuState.weekUnlocked[Std.int(Math.min(storyWeek + 1, StoryMenuState.weekUnlocked.length - 1))] = true;
@@ -3791,11 +3791,11 @@ class PlayState extends MusicBeatState
 			resyncVocals();
 		}
 
-		if (executeModchart && lua != null)
-		{
-			setVar('curStep',curStep);
-			callLua('stepHit',[curStep]);
-		}
+		// if (executeModchart && lua != null)
+		// {
+		// 	setVar('curStep',curStep);
+		// 	callLua('stepHit',[curStep]);
+		// }
 
 		if (dad.curCharacter == 'spooky' && curStep % 4 == 2)
 		{
@@ -3828,11 +3828,11 @@ class PlayState extends MusicBeatState
 			notes.sort(FlxSort.byY, FlxSort.DESCENDING);
 		}
 
-		if (executeModchart && lua != null)
-		{
-			setVar('curBeat',curBeat);
-			callLua('beatHit',[curBeat]);
-		}
+		// if (executeModchart && lua != null)
+		// {
+		// 	setVar('curBeat',curBeat);
+		// 	callLua('beatHit',[curBeat]);
+		// }
 
 		if (SONG.notes[Math.floor(curStep / 16)] != null)
 		{
