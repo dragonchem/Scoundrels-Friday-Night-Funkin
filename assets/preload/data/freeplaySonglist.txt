@@ -9,3 +9,5 @@ Claw:dad:2
 Mantis Lords:dad:3
 Hornet:dad:3
 Vitality:dad:4
+Main Menu:parents-christmas:5
+Tick Tock Clock:parents-christmas:5

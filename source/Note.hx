@@ -36,7 +36,7 @@ class Note extends FlxSprite
 
 	public var rating:String = "shit";
 
-	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false)
+	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false, ?songspeed:Float = 1)
 	{
 		super();
 
@@ -172,9 +172,13 @@ class Note extends FlxSprite
 					case 3:
 						prevNote.animation.play('redhold');
 				}
-
-				
-				prevNote.scale.y *= Conductor.stepCrochet / 100 * 1.8 * FlxG.save.data.scrollSpeed;
+				var speed: Float = FlxG.save.data.scrollSpeed;
+				if (speed == 1) {
+					prevNote.scale.y *= Conductor.stepCrochet / 100 * 1.8 * speed * songspeed;
+				}
+				else {
+					prevNote.scale.y *= Conductor.stepCrochet / 100 * 1.8 * speed;
+				}
 				prevNote.updateHitbox();
 				// prevNote.setGraphicSize();
 			}
