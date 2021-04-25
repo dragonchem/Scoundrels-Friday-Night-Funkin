@@ -144,6 +144,7 @@ class Note extends FlxSprite
 			{
 				case 2:
 					animation.play('greenholdend');
+
 				case 3:
 					animation.play('redholdend');
 				case 1:
@@ -153,6 +154,17 @@ class Note extends FlxSprite
 			}
 
 			updateHitbox();
+			
+			var speed: Float = FlxG.save.data.scrollSpeed;
+
+			if (FlxG.save.data.downscroll) {
+				if (speed == 1) {
+					this.offset.y -= 45 * songspeed;
+				}
+				else {
+					this.offset.y -= 45 * speed;
+				}
+			}
 
 			x -= width / 2;
 
@@ -172,7 +184,6 @@ class Note extends FlxSprite
 					case 3:
 						prevNote.animation.play('redhold');
 				}
-				var speed: Float = FlxG.save.data.scrollSpeed;
 				if (speed == 1) {
 					prevNote.scale.y *= Conductor.stepCrochet / 100 * 1.8 * speed * songspeed;
 				}

@@ -387,11 +387,17 @@ class TitleState extends MusicBeatState
 
 		FlxG.log.add(curBeat);
 
+		trace(curBeat);
+
 		switch (curBeat)
 		{
 			case 1:
 				createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
+				trace(1);
+				addMoreText('The Scoundrels');
 			// credTextShit.visible = true;
+			case 2: 
+				createCoolText(['the scoundrels']);
 			case 3:
 				addMoreText('present');
 			// credTextShit.text += '\npresent...';
@@ -440,7 +446,8 @@ class TitleState extends MusicBeatState
 				addMoreText('Night');
 			// credTextShit.text += '\nNight';
 			case 15:
-				addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
+				addMoreText('Funkin');
+				addMoreText('vs scoundrels');
 
 			case 16:
 				skipIntro();
