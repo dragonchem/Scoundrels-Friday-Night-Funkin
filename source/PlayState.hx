@@ -2255,11 +2255,11 @@ class PlayState extends MusicBeatState
 		{
 			if (FlxG.save.data.accuracyDisplay)
 			{
-				scoreTxt.text = (FlxG.save.data.npsDisplay ? "NPS: " + nps + " | " : "") + "Score:" + (Conductor.safeFrames != 10 ? songScore + " (" + songScoreDef + ")" : "" + songScore) + " | Combo Breaks:" + misses + " | Accuracy:" + truncateFloat(accuracy, 2) + "% | " + generateRanking();
+				scoreTxt.text = (FlxG.save.data.npsDisplay ? "NPS: " + nps + "|" : "") + "Score:" + (Conductor.safeFrames != 10 ? songScore + " (" + songScoreDef + ")" : "" + songScore) + "|Combo Breaks:" + misses + "|Accuracy:" + truncateFloat(accuracy, 2) + "%|" + generateRanking();
 			}
 			else
 			{
-				scoreTxt.text = (FlxG.save.data.npsDisplay ? "NPS: " + nps + " | " : "") + "Score:" + songScore;
+				scoreTxt.text = (FlxG.save.data.npsDisplay ? "NPS: " + nps + "|" : "") + "Score:" + songScore;
 			}
 		}
 		else
