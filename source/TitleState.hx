@@ -305,31 +305,31 @@ class TitleState extends MusicBeatState
 
 			new FlxTimer().start(2, function(tmr:FlxTimer)
 			{
+				FlxG.switchState(new MainMenuState());
 
 				// Get current version of Kade Engine
 
-				var http = new haxe.Http("https://raw.githubusercontent.com/KadeDev/Kade-Engine/master/version.downloadMe");
+				// var http = new haxe.Http("https://raw.githubusercontent.com/KadeDev/Kade-Engine/master/version.downloadMe");
 
-				http.onData = function (data:String) {
+				// http.onData = function (data:String) {
 				  
-				  	if (!MainMenuState.kadeEngineVer.contains(data.trim()) && !OutdatedSubState.leftState && MainMenuState.nightly == "")
-					{
-						trace('outdated lmao! ' + data.trim() + ' != ' + MainMenuState.kadeEngineVer);
-						OutdatedSubState.needVer = data;
-						FlxG.switchState(new OutdatedSubState());
-					}
-					else
-					{
-						FlxG.switchState(new MainMenuState());
-					}
-				}
+				//   	if (!MainMenuState.kadeEngineVer.contains(data.trim()) && !OutdatedSubState.leftState && MainMenuState.nightly == "")
+				// 	{
+				// 		trace('outdated lmao! ' + data.trim() + ' != ' + MainMenuState.kadeEngineVer);
+				// 		OutdatedSubState.needVer = data;
+				// 		FlxG.switchState(new OutdatedSubState());
+				// 	}
+				// 	else
+				// 	{
+				// 	}
+				// }
 				
-				http.onError = function (error) {
-				  trace('error: $error');
-				  FlxG.switchState(new MainMenuState()); // fail but we go anyway
-				}
+				// http.onError = function (error) {
+				//   trace('error: $error');
+				//   FlxG.switchState(new MainMenuState()); // fail but we go anyway
+				// }
 				
-				http.request();
+				// http.request();
 
 			});
 			// FlxG.sound.play(Paths.music('titleShoot'), 0.7);
