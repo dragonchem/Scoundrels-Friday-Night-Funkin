@@ -24,27 +24,33 @@ class StoryMenuState extends MusicBeatState
 	var scoreText:FlxText;
 
 	var weekData:Array<Dynamic> = [
-		['Tutorial'],
 		['Life Will Change', 'Take Over', 'Dance'],
 		['Mantis Lords', 'Hornet'],
-		['Cammy', 'Boxer', 'Blanka']
+		['Cammy', 'Boxer', 'Blanka', 'Claw', 'Alex'],
+		['Vitality'],
+		['Main Menu', 'Tick Tock Clock', 'Waluigi Pinball'],
+		['Running in the Nineties', 'Ram Ranch', 'Hell'],
 	];
 	var curDifficulty:Int = 1;
 
-	public static var weekUnlocked:Array<Bool> = [true, true, true];
+	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true];
 
 	var weekCharacters:Array<Dynamic> = [
-		['', 'bf', 'gf'],
 		['kitten', 'bf', 'gf'],
 		['dad', 'bf', 'gf'],
+		['dad', 'bf', 'gf'],
+		['dad', 'bf', 'gf'],
+		['parents-christmas', 'bf', 'gf'],
 		['dad', 'bf', 'gf'],
 	];
 
 	var weekNames:Array<String> = [
-		"How To Funk",
 		"Average Persona Fan",
 		"German Twat",
-		"Gremlin"
+		"Gremlin",
+		"Horny",
+		"Karting Kombo",
+		"I'm sorry for your fingers",
 	];
 
 	var txtWeekTitle:FlxText;
@@ -117,6 +123,8 @@ class StoryMenuState extends MusicBeatState
 			weekThing.targetY = i;
 			grpWeekText.add(weekThing);
 
+			trace(weekData[i]);
+
 			weekThing.screenCenter(X);
 			weekThing.antialiasing = true;
 			// weekThing.updateHitbox();
@@ -178,6 +186,8 @@ class StoryMenuState extends MusicBeatState
 		txtTracklist.alignment = CENTER;
 		txtTracklist.font = rankText.font;
 		txtTracklist.color = 0xFFe55777;
+		txtTracklist.scale.x *= 0.85;
+		txtTracklist.scale.y *= 0.85;
 		add(txtTracklist);
 		// add(rankText);
 		add(scoreText);
@@ -378,6 +388,7 @@ class StoryMenuState extends MusicBeatState
 			txtTracklist.text += "\n" + i;
 		}
 
+		txtTracklist.text += "\n";
 		txtTracklist.text = txtTracklist.text.toUpperCase();
 
 		txtTracklist.screenCenter(X);

@@ -1,4 +1,3 @@
-Tutorial:gf:0
 Life Will Change:kitten:1
 Take Over:kitten:1
 Dance:kitten:1
