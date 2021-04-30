@@ -511,7 +511,6 @@ class Character extends FlxSprite
 				addOffset("singDOWN");
 
 				playAnim('idle');
-				trace(frames);
 		}
 
 		dance();
