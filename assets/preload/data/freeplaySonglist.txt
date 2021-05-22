@@ -13,6 +13,7 @@ Sealed Vessel:dad:4
 Main Menu:parents-christmas:5
 Tick Tock Clock:parents-christmas:5
 Waluigi Pinball:parents-christmas:5
+Delfino Square:parents-christmas:5
 Hell:dad:6
 Ram Ranch:dad:6
 Running in the Nineties:dad:6
@@ -22,3 +23,4 @@ Betus Blues:dad:2
 Gritzy Desert:dad:8
 Popple And Rookie:dad:8
 In The Final:dad:8
+Gravity Falls:dad:4

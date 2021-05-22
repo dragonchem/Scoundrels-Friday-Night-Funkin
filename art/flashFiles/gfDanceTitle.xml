@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="gfDanceTitle.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Start Screen BG art0000" x="0" y="0" width="716" height="641" frameX="-3" frameY="-14" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0001" x="716" y="0" width="721" height="641" frameX="0" frameY="-14" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0002" x="1437" y="0" width="721" height="639" frameX="0" frameY="-16" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0003" x="2158" y="0" width="716" height="639" frameX="-3" frameY="-16" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0004" x="2874" y="0" width="716" height="642" frameX="-3" frameY="-13" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0005" x="0" y="642" width="716" height="642" frameX="-3" frameY="-13" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0006" x="716" y="642" width="716" height="643" frameX="-3" frameY="-12" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0007" x="1432" y="642" width="716" height="654" frameX="-3" frameY="-1" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0008" x="1432" y="642" width="716" height="654" frameX="-3" frameY="-1" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0009" x="1432" y="642" width="716" height="654" frameX="-3" frameY="-1" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0010" x="2148" y="642" width="716" height="655" frameX="-3" frameY="0" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0011" x="2148" y="642" width="716" height="655" frameX="-3" frameY="0" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0012" x="2148" y="642" width="716" height="655" frameX="-3" frameY="0" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0013" x="2864" y="642" width="716" height="654" frameX="-3" frameY="-1" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0014" x="2864" y="642" width="716" height="654" frameX="-3" frameY="-1" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0015" x="0" y="1297" width="716" height="643" frameX="-3" frameY="-12" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0016" x="716" y="1297" width="721" height="643" frameX="0" frameY="-12" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0017" x="1437" y="1297" width="721" height="643" frameX="0" frameY="-12" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0018" x="2158" y="1297" width="716" height="643" frameX="-3" frameY="-12" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0019" x="2874" y="1297" width="716" height="644" frameX="-3" frameY="-11" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0020" x="0" y="1941" width="716" height="644" frameX="-3" frameY="-11" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0021" x="716" y="1941" width="716" height="645" frameX="-3" frameY="-10" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0022" x="1432" y="1941" width="716" height="650" frameX="-3" frameY="-5" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0023" x="1432" y="1941" width="716" height="650" frameX="-3" frameY="-5" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0024" x="1432" y="1941" width="716" height="650" frameX="-3" frameY="-5" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0025" x="2148" y="1941" width="716" height="649" frameX="-3" frameY="-6" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0026" x="2148" y="1941" width="716" height="649" frameX="-3" frameY="-6" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0027" x="2148" y="1941" width="716" height="649" frameX="-3" frameY="-6" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0028" x="2864" y="1941" width="716" height="649" frameX="-3" frameY="-6" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0029" x="2864" y="1941" width="716" height="649" frameX="-3" frameY="-6" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="Start Screen BG art0030" x="0" y="0" width="716" height="641" frameX="-3" frameY="-14" frameWidth="721" frameHeight="655"/>
+</TextureAtlas>
