@@ -27,11 +27,12 @@ class Credits extends MusicBeatState
         credits.push(new Credit('a mod by', false, ''));
         credits.push(new Credit('The Scoundrels', true, 'https://www.youtube.com/channel/UCUjZlboApDksiecwzbiKomQ'));
         credits.push(new Credit('', false, ''));
-        credits.push(new Credit('programming and animation by', false, ''));
+        credits.push(new Credit('code and animation by', false, ''));
         credits.push(new Credit('TheLazyKitten', true, 'https://www.youtube.com/channel/UCzvcYe9Km0VZy9SAtZlNCdg'));
         credits.push(new Credit('', false, ''));
         credits.push(new Credit('art assets by', false, ''));
         credits.push(new Credit('KingOfShells', true, 'https://twitter.com/kingofshells'));
+        credits.push(new Credit('Thee Apple in yer Snapple', true, 'https://twitter.com/TheeSnApple'));
         credits.push(new Credit('', false, ''));
         credits.push(new Credit('art references by', false, ''));
         credits.push(new Credit('BOllet', true, 'https://www.youtube.com/channel/UCX6ts-wfdL1eNWySIgZZeUQ'));
@@ -104,8 +105,6 @@ class Credits extends MusicBeatState
             curSelected = grpControls.length - 1;
         if (curSelected >= grpControls.length)
             curSelected = 0;
-
-        trace(credits[curSelected].getName());
 
         if (!credits[curSelected].getClickable()) {
             changeSelection(change);

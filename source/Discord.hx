@@ -39,7 +39,7 @@ class DiscordClient
 		DiscordRpc.presence({
 			details: "In the Menus",
 			state: null,
-			largeImageKey: 'testimage',
+			largeImageKey: 'discordlogo',
 			largeImageText: "This Is A Test"
 		});
 	}
@@ -75,7 +75,7 @@ class DiscordClient
 		DiscordRpc.presence({
 			details: details,
 			state: state,
-			largeImageKey: 'testimage',
+			largeImageKey: 'discordlogo',
 			largeImageText: "This Is A Test",
 			smallImageKey : smallImageKey,
 			// Obtained times are in milliseconds so they are divided so Discord can use it

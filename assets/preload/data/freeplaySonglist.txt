@@ -24,3 +24,6 @@ Gritzy Desert:dad:8
 Popple And Rookie:dad:8
 In The Final:dad:8
 Gravity Falls:dad:4
+Seaside Hill:dad:9
+Mirage Saloon:dad:9
+Fist Bump:dad:9
