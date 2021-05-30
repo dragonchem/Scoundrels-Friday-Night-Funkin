@@ -30,10 +30,12 @@ class StoryMenuState extends MusicBeatState
 		['Vitality'],
 		['Main Menu', 'Tick Tock Clock', 'Waluigi Pinball'],
 		['Running in the Nineties', 'Ram Ranch', 'Hell'],
+		['Fist Bump'],
+		['Gritzy Desert', 'Popple and Rookie', 'In The Final']
 	];
-	var curDifficulty:Int = 1;
+	var curDifficulty:Int = 2;
 
-	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true];
+	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true, true, true, true, true, true];
 
 	var weekCharacters:Array<Dynamic> = [
 		['kitten', 'bf', 'gf'],
@@ -42,6 +44,50 @@ class StoryMenuState extends MusicBeatState
 		['dad', 'bf', 'gf'],
 		['parents-christmas', 'bf', 'gf'],
 		['dad', 'bf', 'gf'],
+		['dad', 'bf', 'gf'],
+		['dad', 'bf', 'gf'],
+	];
+
+	var weekEnemy:Array<Array<String>> = [
+		['kitten'],
+		['alm'],
+		['b0llet'],
+		['delta'],
+		['kitten', '&', 'b0llet'],
+		['chantley'],
+		['cuttle'],
+		['niels']
+	];
+
+	var diffHeight:Float;
+
+	var nameColors:Array<Array<Array<Int>>> = [
+		[
+			[0x00000000, 0xFFffa200]
+		],
+		[
+			[0x00000000, 0xFF48ff00]
+		],
+		[
+			[0x00000000, 0xFF7f1f8a]
+		],
+		[
+			[0x00000000, 0xFFa43139]
+		],
+		[
+			[0x00000000, 0xFFffa200],
+			[0x00000000, 0xFFA80600],
+			[0x00000000, 0xFF7f1f8a]
+		],
+		[
+			[0x00000000, 0xFFE05D9E]
+		],
+		[
+			[0x00000000, 0xFFfffb00]
+		],
+		[
+			[0x00000000, 0xFF2DABB5]
+		],
 	];
 
 	var weekNames:Array<String> = [
@@ -51,6 +97,8 @@ class StoryMenuState extends MusicBeatState
 		"Horny",
 		"Karting Kombo",
 		"I'm sorry for your fingers",
+		"Sondic :)",
+		"M&L",
 	];
 
 	var txtWeekTitle:FlxText;
@@ -64,10 +112,8 @@ class StoryMenuState extends MusicBeatState
 
 	var grpLocks:FlxTypedGroup<FlxSprite>;
 
-	var difficultySelectors:FlxGroup;
-	var sprDifficulty:FlxSprite;
-	var leftArrow:FlxSprite;
-	var rightArrow:FlxSprite;
+	var difficultySelectors:FlxGroup = new FlxGroup();
+	var txtName:Array<FlxText> = [];
 
 	override function create()
 	{
@@ -125,6 +171,7 @@ class StoryMenuState extends MusicBeatState
 
 			trace(weekData[i]);
 
+			weekThing.setSize(1000, 500);
 			weekThing.screenCenter(X);
 			weekThing.antialiasing = true;
 			// weekThing.updateHitbox();
@@ -153,29 +200,44 @@ class StoryMenuState extends MusicBeatState
 
 		trace("Line 124");
 
-		leftArrow = new FlxSprite(grpWeekText.members[0].x + grpWeekText.members[0].width + 10, grpWeekText.members[0].y + 10);
-		leftArrow.frames = ui_tex;
-		leftArrow.animation.addByPrefix('idle', "arrow left");
-		leftArrow.animation.addByPrefix('press', "arrow push left");
-		leftArrow.animation.play('idle');
-		difficultySelectors.add(leftArrow);
+		diffHeight = grpWeekText.members[0].y + 10;
 
-		sprDifficulty = new FlxSprite(leftArrow.x + 130, leftArrow.y);
-		sprDifficulty.frames = ui_tex;
-		sprDifficulty.animation.addByPrefix('easy', 'EASY');
-		sprDifficulty.animation.addByPrefix('normal', 'NORMAL');
-		sprDifficulty.animation.addByPrefix('hard', 'HARD');
-		sprDifficulty.animation.play('easy');
-		changeDifficulty();
+		trace(curWeek);
+		trace(nameColors);
+		trace(nameColors[curWeek]);
+		addText(weekEnemy[curWeek], nameColors[curWeek]);
+		// txtName = new FlxText(grpWeekText.members[0].x + grpWeekText.members[0].width + 10, grpWeekText.members[0].y + 10, 400, weekEnemy[curWeek], 50);
+		// txtName.setFormat(Paths.font("tf2build.ttf"), 50, 0xFFe55777, CENTER);
+		// txtName.borderStyle = OUTLINE;
+		// txtName.borderSize = 5;
+		// txtName.borderQuality = 3;
+		// txtName.borderColor = nameColors[curWeek][1];
+		// txtName.color = nameColors[curWeek][0];
+		// difficultySelectors.add(txtName);
 
-		difficultySelectors.add(sprDifficulty);
+		// leftArrow = new FlxSprite(grpWeekText.members[0].x + grpWeekText.members[0].width + 10, grpWeekText.members[0].y + 10);
+		// leftArrow.frames = ui_tex;
+		// leftArrow.animation.addByPrefix('idle', "arrow left");
+		// leftArrow.animation.addByPrefix('press', "arrow push left");
+		// leftArrow.animation.play('idle');
+		// difficultySelectors.add(leftArrow);
 
-		rightArrow = new FlxSprite(sprDifficulty.x + sprDifficulty.width + 50, leftArrow.y);
-		rightArrow.frames = ui_tex;
-		rightArrow.animation.addByPrefix('idle', 'arrow right');
-		rightArrow.animation.addByPrefix('press', "arrow push right", 24, false);
-		rightArrow.animation.play('idle');
-		difficultySelectors.add(rightArrow);
+		// sprDifficulty = new FlxSprite(leftArrow.x + 130, leftArrow.y);
+		// sprDifficulty.frames = ui_tex;
+		// sprDifficulty.animation.addByPrefix('easy', 'EASY');
+		// sprDifficulty.animation.addByPrefix('normal', 'NORMAL');
+		// sprDifficulty.animation.addByPrefix('hard', 'HARD');
+		// sprDifficulty.animation.play('easy');
+		// changeDifficulty();
+
+		// difficultySelectors.add(sprDifficulty);
+
+		// rightArrow = new FlxSprite(sprDifficulty.x + sprDifficulty.width + 50, leftArrow.y);
+		// rightArrow.frames = ui_tex;
+		// rightArrow.animation.addByPrefix('idle', 'arrow right');
+		// rightArrow.animation.addByPrefix('press', "arrow push right", 24, false);
+		// rightArrow.animation.play('idle');
+		// difficultySelectors.add(rightArrow);
 
 		trace("Line 150");
 
@@ -198,6 +260,32 @@ class StoryMenuState extends MusicBeatState
 		trace("Line 165");
 
 		super.create();
+	}
+
+	function resetText()
+	{
+		txtName = [];
+		difficultySelectors.clear();
+	}
+	
+	function addText(text: Array<String>, colors)
+	{
+		var i = 0;
+		for (name in text)
+		{
+			trace(name);
+			var name = new FlxText((grpWeekText.members[0].x + 5) + grpWeekText.members[0].width + 10, diffHeight + (75 * i), 400, name, 50);
+			name.setFormat(Paths.font("tf2build.ttf"), 65, 0xFFe55777, CENTER);
+			name.borderStyle = OUTLINE;
+			name.antialiasing = true;
+			name.borderSize = 5;
+			name.borderQuality = 5;
+			name.borderColor = colors[i][1];
+			name.color = colors[i][0];
+			txtName.push(name);
+			difficultySelectors.add(name);
+			i++;
+		}
 	}
 
 	override function update(elapsed:Float)
@@ -232,16 +320,6 @@ class StoryMenuState extends MusicBeatState
 				{
 					changeWeek(1);
 				}
-
-				if (controls.RIGHT)
-					rightArrow.animation.play('press')
-				else
-					rightArrow.animation.play('idle');
-
-				if (controls.LEFT)
-					leftArrow.animation.play('press');
-				else
-					leftArrow.animation.play('idle');
 
 				if (controls.RIGHT_P)
 					changeDifficulty(1);
@@ -310,39 +388,37 @@ class StoryMenuState extends MusicBeatState
 
 	function changeDifficulty(change:Int = 0):Void
 	{
-		curDifficulty += change;
+		// if (curDifficulty < 0)
+		// 	curDifficulty = 2;
+		// if (curDifficulty > 2)
+		// 	curDifficulty = 0;
 
-		if (curDifficulty < 0)
-			curDifficulty = 2;
-		if (curDifficulty > 2)
-			curDifficulty = 0;
+		// sprDifficulty.offset.x = 0;
 
-		sprDifficulty.offset.x = 0;
+		// switch (curDifficulty)
+		// {
+		// 	case 0:
+		// 		sprDifficulty.animation.play('easy');
+		// 		sprDifficulty.offset.x = 20;
+		// 	case 1:
+		// 		sprDifficulty.animation.play('normal');
+		// 		sprDifficulty.offset.x = 70;
+		// 	case 2:
+		// 		sprDifficulty.animation.play('hard');
+		// 		sprDifficulty.offset.x = 20;
+		// }
 
-		switch (curDifficulty)
-		{
-			case 0:
-				sprDifficulty.animation.play('easy');
-				sprDifficulty.offset.x = 20;
-			case 1:
-				sprDifficulty.animation.play('normal');
-				sprDifficulty.offset.x = 70;
-			case 2:
-				sprDifficulty.animation.play('hard');
-				sprDifficulty.offset.x = 20;
-		}
+		// sprDifficulty.alpha = 0;
 
-		sprDifficulty.alpha = 0;
+		// // USING THESE WEIRD VALUES SO THAT IT DOESNT FLOAT UP
+		// sprDifficulty.y = leftArrow.y - 15;
+		// intendedScore = Highscore.getWeekScore(curWeek, curDifficulty);
 
-		// USING THESE WEIRD VALUES SO THAT IT DOESNT FLOAT UP
-		sprDifficulty.y = leftArrow.y - 15;
-		intendedScore = Highscore.getWeekScore(curWeek, curDifficulty);
+		// #if !switch
+		// intendedScore = Highscore.getWeekScore(curWeek, curDifficulty);
+		// #end
 
-		#if !switch
-		intendedScore = Highscore.getWeekScore(curWeek, curDifficulty);
-		#end
-
-		FlxTween.tween(sprDifficulty, {y: leftArrow.y + 15, alpha: 1}, 0.07);
+		// FlxTween.tween(sprDifficulty, {y: leftArrow.y + 15, alpha: 1}, 0.07);
 	}
 
 	var lerpScore:Int = 0;
@@ -358,6 +434,11 @@ class StoryMenuState extends MusicBeatState
 			curWeek = weekData.length - 1;
 
 		var bullShit:Int = 0;
+		resetText();
+		addText(weekEnemy[curWeek], nameColors[curWeek]);
+		// txtName.text = weekEnemy[curWeek];
+		// txtName.borderColor = nameColors[curWeek][1];
+		// txtName.color = nameColors[curWeek][0];
 
 		for (item in grpWeekText.members)
 		{

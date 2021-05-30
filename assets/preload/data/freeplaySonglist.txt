@@ -27,3 +27,4 @@ Gravity Falls:dad:4
 Seaside Hill:dad:9
 Mirage Saloon:dad:9
 Fist Bump:dad:9
+Chemical Plant:dad:9

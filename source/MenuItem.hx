@@ -1,5 +1,6 @@
 package;
 
+import flixel.text.FlxText;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
@@ -7,16 +8,25 @@ import flixel.group.FlxSpriteGroup;
 import flixel.math.FlxMath;
 import flixel.util.FlxColor;
 
-class MenuItem extends FlxSpriteGroup
+class MenuItem extends FlxTypedSpriteGroup<FlxText>
 {
 	public var targetY:Float = 0;
-	public var week:FlxSprite;
+	public var week:FlxText;
 	public var flashingInt:Int = 0;
 
 	public function new(x:Float, y:Float, weekNum:Int = 0)
 	{
 		super(x, y);
-		week = new FlxSprite().loadGraphic(Paths.image('storymenu/week' + weekNum));
+		week = new FlxText();
+		week.text = "Week " + (weekNum + 1);
+		week.font = Paths.font("tf2build.ttf");
+		week.borderStyle = OUTLINE;
+		week.color = FlxColor.BLACK;
+		week.borderSize = 5;
+		week.borderColor = FlxColor.WHITE;
+		week.borderQuality = 5;
+		week.size = 100;
+		week.antialiasing = true;
 		add(week);
 	}
 
@@ -42,8 +52,8 @@ class MenuItem extends FlxSpriteGroup
 			flashingInt += 1;
 
 		if (flashingInt % fakeFramerate >= Math.floor(fakeFramerate / 2))
-			week.color = 0xFF33ffff;
+			week.borderColor = 0xFF33ffff;
 		else
-			week.color = FlxColor.WHITE;
+			week.borderColor = FlxColor.WHITE;
 	}
 }

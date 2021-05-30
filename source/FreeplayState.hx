@@ -23,7 +23,7 @@ class FreeplayState extends MusicBeatState
 
 	var selector:FlxText;
 	var curSelected:Int = 0;
-	var curDifficulty:Int = 1;
+	var curDifficulty:Int = 2;
 
 	var scoreText:FlxText;
 	var diffText:FlxText;
@@ -217,7 +217,7 @@ class FreeplayState extends MusicBeatState
 
 	function changeDiff(change:Int = 0)
 	{
-		curDifficulty += change;
+		curDifficulty = 2;
 
 		if (curDifficulty < 0)
 			curDifficulty = 2;
@@ -235,7 +235,7 @@ class FreeplayState extends MusicBeatState
 			case 1:
 				diffText.text = 'NORMAL';
 			case 2:
-				diffText.text = "HARD";
+				diffText.text = "REGULAR";
 		}
 	}
 
@@ -259,6 +259,7 @@ class FreeplayState extends MusicBeatState
 
 		#if !switch
 		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
+		diffText.text = songs[curSelected].songCharacter;
 		// lerpScore = 0;
 		#end
 
