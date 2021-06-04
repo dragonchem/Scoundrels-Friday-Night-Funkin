@@ -28,3 +28,6 @@ Seaside Hill:dad:9
 Mirage Saloon:dad:9
 Fist Bump:dad:9
 Chemical Plant:dad:9
+Gear Getaway:dad:9
+Never Let Up:dad:8
+Gang Plank Galleon:dad:7

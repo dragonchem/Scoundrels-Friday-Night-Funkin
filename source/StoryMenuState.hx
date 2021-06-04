@@ -80,7 +80,7 @@ class StoryMenuState extends MusicBeatState
 			[0x00000000, 0xFF7f1f8a]
 		],
 		[
-			[0x00000000, 0xFFE05D9E]
+			[0x00000000, 0xFF0099FF]
 		],
 		[
 			[0x00000000, 0xFFfffb00]
