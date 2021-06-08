@@ -31,3 +31,4 @@ Chemical Plant:dad:9
 Gear Getaway:dad:9
 Never Let Up:dad:8
 Gang Plank Galleon:dad:7
+Cornered:kitten:1
