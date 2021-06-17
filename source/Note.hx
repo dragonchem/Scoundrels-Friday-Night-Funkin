@@ -159,10 +159,18 @@ class Note extends FlxSprite
 
 			if (FlxG.save.data.downscroll) {
 				if (speed == 1) {
-					this.offset.y -= 45 * songspeed;
+					this.offset.y -= 5 * songspeed;
 				}
 				else {
-					this.offset.y -= 45 * speed;
+					this.offset.y -= 5 * speed;
+				}
+			}
+			else {
+				if (speed == 1) {
+					this.offset.y += 40 * songspeed;
+				}
+				else {
+					this.offset.y += 40 * speed;
 				}
 			}
 
@@ -184,12 +192,14 @@ class Note extends FlxSprite
 					case 3:
 						prevNote.animation.play('redhold');
 				}
+				trace(prevNote.scale.y);
 				if (speed == 1) {
-					prevNote.scale.y *= (Conductor.stepCrochet / 100) * (1.7 * songspeed);
+					prevNote.scale.y *= (Conductor.stepCrochet / 100) * (4.3 * songspeed);
 				}
 				else {
-					prevNote.scale.y *= (Conductor.stepCrochet / 100) * (1.7 * speed);
+					prevNote.scale.y *= (Conductor.stepCrochet / 100) * (4.3 * speed);
 				}
+				trace(prevNote.scale.y);
 				prevNote.updateHitbox();
 				// prevNote.setGraphicSize();
 			}

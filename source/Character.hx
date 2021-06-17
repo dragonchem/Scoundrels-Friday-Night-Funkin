@@ -542,7 +542,6 @@ class Character extends FlxSprite
 	{
 		if (!curCharacter.startsWith('bf'))
 		{
-			trace(animation.curAnim.name);
 			if (animation.curAnim.name.startsWith('sing'))
 			{
 				holdTimer += elapsed;

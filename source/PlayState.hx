@@ -337,6 +337,7 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('thorns/thornsDialogue'));
 		}
 
+		trace(SONG.stage);
 		switch(SONG.stage)
 		{
 			case 'halloween': 
