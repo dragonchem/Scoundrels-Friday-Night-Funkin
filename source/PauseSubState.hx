@@ -1,5 +1,6 @@
 package;
 
+import openfl.Lib;
 import Controls.Control;
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -70,7 +71,7 @@ class PauseSubState extends MusicBeatSubstate
 		perSongOffset.scrollFactor.set();
 		perSongOffset.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		
-		#if desktop
+		#if cpp
 			add(perSongOffset);
 		#end
 
@@ -111,7 +112,7 @@ class PauseSubState extends MusicBeatSubstate
 			changeSelection(1);
 		}
 		
-		#if desktop
+		#if cpp
 			else if (leftP)
 			{
 				oldOffset = PlayState.songOffset;
@@ -178,19 +179,17 @@ class PauseSubState extends MusicBeatSubstate
 				case "Restart Song":
 					FlxG.resetState();
 				case "Exit to menu":
-					PlayState.loadRep = false;
-					// if (PlayState.lua != null)
-					// {
-					// 	Lua.close(PlayState.lua);
-					// 	PlayState.lua = null;
-					// }
-					if (PlayState.offsetTesting)
+					if(PlayState.loadRep)
 					{
-						PlayState.offsetTesting = false;
-						FlxG.switchState(new OptionsMenu());
+						FlxG.save.data.botplay = false;
+						FlxG.save.data.scrollSpeed = 1;
+						FlxG.save.data.downscroll = false;
 					}
-					else
-						FlxG.switchState(new MainMenuState());
+					PlayState.loadRep = false;
+					if (FlxG.save.data.fpsCap > 290)
+						(cast (Lib.current.getChildAt(0), Main)).setFPSCap(290);
+					
+					FlxG.switchState(new MainMenuState());
 			}
 		}
 
