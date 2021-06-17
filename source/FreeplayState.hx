@@ -261,7 +261,8 @@ class FreeplayState extends MusicBeatState
 			case 'Dad-Battle': songHighscore = 'Dadbattle';
 			case 'Philly-Nice': songHighscore = 'Philly';
 		}
-		diffText.text = songs[curSelected].songCharacter;
+		diffText.text = songs[curSelected].songCharacter.charAt(0).toUpperCase() + songs[curSelected].songCharacter.substring(1);
+		trace(diffText.text);
 
 		#if !switch
 		intendedScore = Highscore.getScore(songHighscore, curDifficulty);
