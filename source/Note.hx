@@ -154,23 +154,6 @@ class Note extends FlxSprite
 
 			updateHitbox();
 
-			if (FlxG.save.data.downscroll) {
-				if (PlayState.SONG.speed == 1) {
-					this.offset.y -= 5 * FlxG.save.data.scrollSpeed;
-				}
-				else {
-					this.offset.y -= 5 * PlayState.SONG.speed;
-				}
-			}
-			else {
-				if (PlayState.SONG.speed == 1) {
-					this.offset.y += 12 * FlxG.save.data.scrollSpeed;
-				}
-				else {
-					this.offset.y += 12 * PlayState.SONG.speed;
-				}
-			}
-
 			x -= width / 2;
 
 			if (PlayState.curStage.startsWith('school'))
