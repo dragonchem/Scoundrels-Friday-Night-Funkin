@@ -171,6 +171,8 @@ class PlayState extends MusicBeatState
 	var bottomBoppers:FlxSprite;
 	var santa:FlxSprite;
 
+	var endGame:FlxSprite;
+
 	var fc:Bool = true;
 
 	var bgGirls:BackgroundGirls;
@@ -1018,6 +1020,14 @@ class PlayState extends MusicBeatState
 
 		// cameras = [FlxG.cameras.list[1]];
 		startingSong = true;
+
+		if (curSong == 'stickerbush symphony') {
+			endGame = new FlxSprite(0, 0).loadGraphic(Paths.image('endGameThing'));
+			endGame.antialiasing = true;
+			endGame.cameras = [camHUD];
+			endGame.alpha = 0;
+			add(endGame);
+		}
 		
 		trace('starting');
 
@@ -1796,6 +1806,19 @@ class PlayState extends MusicBeatState
 				// phillyCityLights.members[curLight].alpha -= (Conductor.crochet / 1000) * FlxG.elapsed;
 		}
 
+		if (curSong == 'stickerbush symphony') {
+			endFrameTiming += elapsed;
+			 
+			if (endFrameTiming > 111 && endFrameTiming < 114) {
+				camZooming = false;
+				var fade: Float = (endFrameTiming - 111) / 3;
+				if (fade > 1) {
+					fade = 1;
+				}
+				endGame.alpha = fade;
+			}
+		}
+
 		super.update(elapsed);
 
 		scoreTxt.text = Ratings.CalculateRanking(songScore,songScoreDef,nps,maxNPS,accuracy);
@@ -2357,6 +2380,9 @@ class PlayState extends MusicBeatState
 		if (FlxG.keys.justPressed.ONE)
 			endSong();
 		#end
+
+		if (FlxG.keys.justPressed.SPACE && curSong == 'stickerbush symphony' && endFrameTiming > 111)
+			endSong();
 	}
 
 	function endSong():Void
@@ -3221,6 +3247,7 @@ class PlayState extends MusicBeatState
 
 	var trainMoving:Bool = false;
 	var trainFrameTiming:Float = 0;
+	var endFrameTiming:Float = 0;
 
 	var trainCars:Int = 8;
 	var trainFinishing:Bool = false;
