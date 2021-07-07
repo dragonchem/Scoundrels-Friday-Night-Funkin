@@ -5,7 +5,6 @@ Boxer:dad:2
 Cammy:dad:2
 Blanka:dad:2
 Claw:dad:2
-Alex:dad:2
 Mantis Lords:dad:3
 Hornet:dad:3
 Vitality:dad:4
@@ -20,7 +19,6 @@ Running in the Nineties:dad:6
 Crocodile Cacophony:dad:7
 Athletic:kitten:1
 Betus Blues:dad:2
-Gritzy Desert:dad:8
 Popple And Rookie:dad:8
 In The Final:dad:8
 Gravity Falls:dad:4
@@ -35,3 +33,4 @@ Cornered:kitten:1
 Beneath The Mask:kitten:1
 Stickerbush Symphony:dad:2
 Tutorial:bf-pixel:0
+Destruction Dance:dad:2
