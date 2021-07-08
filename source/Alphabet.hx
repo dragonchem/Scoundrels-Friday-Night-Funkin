@@ -78,7 +78,7 @@ class Alphabet extends FlxSpriteGroup
 			// {
 			// }
 
-			if (character == " " || character == "-")
+			if (character == " ")
 			{
 				lastWasSpace = true;
 			}
@@ -103,9 +103,34 @@ class Alphabet extends FlxSpriteGroup
 
 				if (isBold)
 					letter.createBold(character);
-				else
-				{
+				else {
 					letter.createLetter(character);
+				}
+
+				add(letter);
+
+				lastSprite = letter;
+			}
+			else if (AlphaCharacter.symbols.indexOf(character.toLowerCase()) != -1) {
+				if (lastSprite != null)
+				{
+					xPos = lastSprite.x + lastSprite.width;
+				}
+
+				if (lastWasSpace)
+				{
+					xPos += 40;
+					lastWasSpace = false;
+				}
+
+				// var letter:AlphaCharacter = new AlphaCharacter(30 * loopNum, 0);
+				var letter:AlphaCharacter = new AlphaCharacter(xPos, 0);
+				listOAlphabets.add(letter);
+
+				if (isBold)
+					letter.createBold(character);
+				else {
+					letter.createSymbol(character);
 				}
 
 				add(letter);
@@ -160,6 +185,8 @@ class Alphabet extends FlxSpriteGroup
 			var isSymbol:Bool = AlphaCharacter.symbols.indexOf(splitWords[loopNum]) != -1;
 			#end
 
+			trace(AlphaCharacter.alphabet.indexOf(splitWords[loopNum].toLowerCase()) != -1 || isNumber || isSymbol);
+
 			if (AlphaCharacter.alphabet.indexOf(splitWords[loopNum].toLowerCase()) != -1 || isNumber || isSymbol)
 				// if (AlphaCharacter.alphabet.contains(splitWords[loopNum].toLowerCase()) || isNumber || isSymbol)
 
@@ -197,10 +224,6 @@ class Alphabet extends FlxSpriteGroup
 					{
 						letter.createNumber(splitWords[loopNum]);
 					}
-					else if (isSymbol)
-					{
-						letter.createSymbol(splitWords[loopNum]);
-					}
 					else
 					{
 						letter.createLetter(splitWords[loopNum]);
@@ -218,6 +241,9 @@ class Alphabet extends FlxSpriteGroup
 				add(letter);
 
 				lastSprite = letter;
+			}
+			else {
+				trace(splitWords[loopNum]);
 			}
 
 			loopNum += 1;
@@ -246,7 +272,7 @@ class AlphaCharacter extends FlxSprite
 
 	public static var numbers:String = "1234567890";
 
-	public static var symbols:String = "|~#$%()*+-:;<=>@[]^_.,'!? ";
+	public static var symbols:String = "|~#$%()*+-:;<=>@[]^_.,'!?";
 
 	public var row:Int = 0;
 
@@ -274,7 +300,22 @@ class AlphaCharacter extends FlxSprite
 			letterCase = 'capital';
 		}
 
-		animation.addByPrefix(letter, letter + " " + letterCase, 24);
+		var isSymbol = false;
+		var symbols = "|~#$%()*+-:;<=>@[]^_.,'!? ";
+		var i = 0;
+		for (char in symbols) {
+			if (symbols.charAt(i) == letter.trim()) {
+				isSymbol = true;
+			}
+			i++;
+		}
+		trace(isSymbol);
+		if (isSymbol) {
+			animation.addByPrefix(letter, letter, 24);
+		}
+		else {
+			animation.addByPrefix(letter, letter + " " + letterCase, 24);
+		}
 		animation.play(letter);
 		updateHitbox();
 
@@ -294,6 +335,7 @@ class AlphaCharacter extends FlxSprite
 
 	public function createSymbol(letter:String)
 	{
+		trace(letter.length);
 		switch (letter)
 		{
 			case '.':
@@ -355,5 +397,12 @@ class AlphaCharacter extends FlxSprite
 		}
 
 		updateHitbox();
+
+		trace(animation.name);
+
+		FlxG.log.add('the row' + row);
+
+		y = (110 - height);
+		y += row * 60;
 	}
 }

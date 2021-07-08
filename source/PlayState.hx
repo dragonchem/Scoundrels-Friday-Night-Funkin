@@ -1809,9 +1809,9 @@ class PlayState extends MusicBeatState
 		if (curSong == 'stickerbush symphony') {
 			endFrameTiming += elapsed;
 			 
-			if (endFrameTiming > 111 && endFrameTiming < 114) {
+			if (endFrameTiming > 114 && endFrameTiming < 117) {
 				camZooming = false;
-				var fade: Float = (endFrameTiming - 111) / 3;
+				var fade: Float = (endFrameTiming - 114) / 3;
 				if (fade > 1) {
 					fade = 1;
 				}

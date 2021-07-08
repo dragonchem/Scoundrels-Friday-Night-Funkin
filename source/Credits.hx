@@ -22,8 +22,18 @@ class Credits extends MusicBeatState
 	private var grpControls:FlxTypedGroup<Alphabet>;
     private var credits:Array<Credit> = new Array<Credit>();
 	var curSelected:Int = 1;
+    var name = "You";
     override function create()
     {
+        #if cpp
+        var envs = Sys.environment();
+        
+	    if (envs.exists("COMPUTERNAME"))
+        {
+            name =  envs["COMPUTERNAME"];
+        }
+        #end
+        
         credits.push(new Credit('a mod by', false, ''));
         credits.push(new Credit('The Scoundrels', true, 'https://www.youtube.com/channel/UCUjZlboApDksiecwzbiKomQ'));
         credits.push(new Credit('', false, ''));
@@ -32,9 +42,8 @@ class Credits extends MusicBeatState
         credits.push(new Credit('', false, ''));
         credits.push(new Credit('art assets by', false, ''));
         credits.push(new Credit('KingOfShells', true, 'https://twitter.com/kingofshells'));
-        credits.push(new Credit('Thee Apple in yer Snapple', true, 'https://twitter.com/TheeSnApple'));
         credits.push(new Credit('', false, ''));
-        credits.push(new Credit('art references by', false, ''));
+        credits.push(new Credit('art references and animation by', false, ''));
         credits.push(new Credit('BOllet', true, 'https://www.youtube.com/channel/UCX6ts-wfdL1eNWySIgZZeUQ'));
         credits.push(new Credit('', false, ''));
         credits.push(new Credit('maps and music by', false, ''));
@@ -42,6 +51,21 @@ class Credits extends MusicBeatState
         credits.push(new Credit('BOllet', true, 'https://www.youtube.com/channel/UCX6ts-wfdL1eNWySIgZZeUQ'));
         credits.push(new Credit('DeltaUnknown', true, 'https://www.youtube.com/channel/UCfRBw20j2mWn_QSREv7ngjg'));
         credits.push(new Credit('Alm', true, 'https://www.youtube.com/channel/UCr9Ertq8EjBoAjTYwdwTAWQ'));
+        credits.push(new Credit('', false, ''));
+        credits.push(new Credit('icon by', false, ''));
+        credits.push(new Credit('Mrtoni', true, 'https://twitter.com/murtoni_98'));
+        credits.push(new Credit('', false, ''));
+        credits.push(new Credit('kade engine by', false, ''));
+        credits.push(new Credit('KadeDev', true, 'https://twitter.com/kadedeveloper'));
+        credits.push(new Credit('', false, ''));
+        credits.push(new Credit('special thanks', false, ''));
+        credits.push(new Credit('NyxTheShield (various tools)', true, 'https://twitter.com/nyxtheshield'));
+        credits.push(new Credit('Thee Apple in yer Snapple (idea)', true, 'https://twitter.com/TheeSnApple'));
+        credits.push(new Credit('Travingel (motivation)', true, 'https://twitter.com/Travingel'));
+        credits.push(new Credit('Woops (inspiration)', true, 'https://twitter.com/woops'));
+        credits.push(new Credit('', false, ''));
+        credits.push(new Credit('and', false, ''));
+        credits.push(new Credit(name, true, 'https://www.youtube.com/watch?v=Om_DzkZyxYo'));
         var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image("menuDesat"));
 
         menuBG.color = 0xFFea71fd;
@@ -61,7 +85,6 @@ class Credits extends MusicBeatState
             controlLabel.targetY = i;
             controlLabel.credit = !credits[i].getClickable();
             grpControls.add(controlLabel);
-            trace(controlLabel);
         }
 
         super.create();
