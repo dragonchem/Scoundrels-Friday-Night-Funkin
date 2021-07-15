@@ -17,20 +17,4 @@
 	<SubTexture name="HatsSpeaker0012" x="0" y="0" width="841" height="672" frameX="-7" frameY="0" frameWidth="851" frameHeight="672"/>
 	<SubTexture name="HatsSpeaker0013" x="0" y="0" width="841" height="672" frameX="-7" frameY="0" frameWidth="851" frameHeight="672"/>
 	<SubTexture name="HatsSpeaker0014" x="0" y="0" width="841" height="672" frameX="-7" frameY="0" frameWidth="851" frameHeight="672"/>
-	<SubTexture name="HatsSpeaker0015" x="0" y="0" width="841" height="672" frameX="-7" frameY="0" frameWidth="851" frameHeight="672"/>
-	<SubTexture name="HatsSpeaker0016" x="841" y="0" width="851" height="671" frameX="0" frameY="0" frameWidth="851" frameHeight="672"/>
-	<SubTexture name="HatsSpeaker0017" x="841" y="0" width="851" height="671" frameX="0" frameY="0" frameWidth="851" frameHeight="672"/>
-	<SubTexture name="HatsSpeaker0018" x="0" y="672" width="842" height="671" frameX="-7" frameY="0" frameWidth="851" frameHeight="672"/>
-	<SubTexture name="HatsSpeaker0019" x="0" y="0" width="841" height="672" frameX="-7" frameY="0" frameWidth="851" frameHeight="672"/>
-	<SubTexture name="HatsSpeaker0020" x="0" y="0" width="841" height="672" frameX="-7" frameY="0" frameWidth="851" frameHeight="672"/>
-	<SubTexture name="HatsSpeaker0021" x="0" y="0" width="841" height="672" frameX="-7" frameY="0" frameWidth="851" frameHeight="672"/>
-	<SubTexture name="HatsSpeaker0022" x="0" y="0" width="841" height="672" frameX="-7" frameY="0" frameWidth="851" frameHeight="672"/>
-	<SubTexture name="HatsSpeaker0023" x="0" y="0" width="841" height="672" frameX="-7" frameY="0" frameWidth="851" frameHeight="672"/>
-	<SubTexture name="HatsSpeaker0024" x="0" y="0" width="841" height="672" frameX="-7" frameY="0" frameWidth="851" frameHeight="672"/>
-	<SubTexture name="HatsSpeaker0025" x="0" y="0" width="841" height="672" frameX="-7" frameY="0" frameWidth="851" frameHeight="672"/>
-	<SubTexture name="HatsSpeaker0026" x="0" y="0" width="841" height="672" frameX="-7" frameY="0" frameWidth="851" frameHeight="672"/>
-	<SubTexture name="HatsSpeaker0027" x="0" y="0" width="841" height="672" frameX="-7" frameY="0" frameWidth="851" frameHeight="672"/>
-	<SubTexture name="HatsSpeaker0028" x="0" y="0" width="841" height="672" frameX="-7" frameY="0" frameWidth="851" frameHeight="672"/>
-	<SubTexture name="HatsSpeaker0029" x="0" y="0" width="841" height="672" frameX="-7" frameY="0" frameWidth="851" frameHeight="672"/>
-	<SubTexture name="HatsSpeaker0030" x="842" y="672" width="0" height="0" frameX="-229" frameY="-293" frameWidth="851" frameHeight="672"/>
 </TextureAtlas>
