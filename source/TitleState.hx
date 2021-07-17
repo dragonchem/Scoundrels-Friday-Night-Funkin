@@ -177,6 +177,7 @@ class TitleState extends MusicBeatState
 		gfDance.frames = Paths.getSparrowAtlas('speakerBump');
 		gfDance.scale.set(0.95, 0.95);
 		gfDance.animation.addByPrefix('beat', 'HatsSpeaker', 24);
+		gfDance.animation.play('beat');
 		// gfDance.animation.addByIndices('danceRight', 'HatsSpeaker', [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
 		gfDance.antialiasing = true;
 		add(gfDance);
