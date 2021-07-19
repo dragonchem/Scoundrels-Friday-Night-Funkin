@@ -22,15 +22,16 @@ class CharacterSetting
 class MenuCharacter extends FlxSprite
 {
 	private static var settings:Map<String, CharacterSetting> = [
-		'bf' => new CharacterSetting(0, -20, 1.0, true),
-		'gf' => new CharacterSetting(50, 80, 1.5, true),
-		'dad' => new CharacterSetting(-15, 130),
+		'bf' => new CharacterSetting(170, 80, 1.5, true),
+		'gf' => new CharacterSetting(240, 180, 1.5, true),
+		'dad' => new CharacterSetting(140, 220),
 		'spooky' => new CharacterSetting(20, 30),
 		'pico' => new CharacterSetting(0, 0, 1.0, true),
 		'mom' => new CharacterSetting(-30, 140, 0.85),
 		'parents-christmas' => new CharacterSetting(100, 130, 1.8),
 		'senpai' => new CharacterSetting(-40, -45, 1.4),
-		'kitten' => new CharacterSetting(-40, -40, 1)
+		'kitten' => new CharacterSetting(-40, -40),
+		'b0llet' => new CharacterSetting(280, 200, 2.2)
 	];
 
 	private var flipped:Bool = false;
@@ -54,6 +55,7 @@ class MenuCharacter extends FlxSprite
 		animation.addByPrefix('parents-christmas', "Parent Christmas Idle", 24);
 		animation.addByPrefix('senpai', "SENPAI idle Black Lines", 24);
 		animation.addByPrefix('kitten', "kitten idle dance BLACK LINE", 24);
+		animation.addByPrefix('b0llet', "B0llet", 24);
 
 		setGraphicSize(Std.int(width * scale));
 		updateHitbox();

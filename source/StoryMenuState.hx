@@ -40,7 +40,7 @@ class StoryMenuState extends MusicBeatState
 	var weekCharacters:Array<Dynamic> = [
 		['kitten', 'bf', 'gf'],
 		['dad', 'bf', 'gf'],
-		['dad', 'bf', 'gf'],
+		['b0llet', 'bf', 'gf'],
 		['dad', 'bf', 'gf'],
 		['parents-christmas', 'bf', 'gf'],
 		['dad', 'bf', 'gf'],
@@ -191,9 +191,9 @@ class StoryMenuState extends MusicBeatState
 
 		trace("Line 96");
 
-		grpWeekCharacters.add(new MenuCharacter(0, 100, 0.5, false));
-		grpWeekCharacters.add(new MenuCharacter(450, 25, 0.9, true));
-		grpWeekCharacters.add(new MenuCharacter(850, 100, 0.5, true));
+		grpWeekCharacters.add(new MenuCharacter(0, 100, 0.18, false));
+		grpWeekCharacters.add(new MenuCharacter(450, 25, 0.15, true));
+		grpWeekCharacters.add(new MenuCharacter(850, 100, 0.20, true));
 
 		difficultySelectors = new FlxGroup();
 		add(difficultySelectors);
