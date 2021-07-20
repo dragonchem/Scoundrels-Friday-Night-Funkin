@@ -12,6 +12,9 @@ This mod is a collection of various remixes made as a love letter to both FNF an
 
 Note: This mod was made by a group of inexperienced friends for fun. We had no previous experience with music making, a single programmer with no experience in HaxeFlixel and an artist who had never worked in this style before.
 
+The OST can be found here:
+https://www.youtube.com/playlist?list=PL3nPqsmZDJGgR-Rc4RMf55jC9-SNnt4qs
+
 Credits: 
 A mod by
 The Scoundrels
