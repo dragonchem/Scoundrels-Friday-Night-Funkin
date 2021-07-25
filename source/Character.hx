@@ -510,12 +510,12 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'Forward', 24, false);
 
 				addOffset('idle');
-				addOffset("singUP", 42, -19);
-				addOffset("singRIGHT", -13, -70);
-				addOffset("singLEFT", 35, -38);
-				addOffset("singDOWN", -32, -194);
+				addOffset("singUP", 50, -23);
+				addOffset("singRIGHT", -12, -82);
+				addOffset("singLEFT", 40, -45);
+				addOffset("singDOWN", -32, -228);
 
-				setGraphicSize(Std.int(width / 2.625));
+				setGraphicSize(Std.int(width / 2.25));
 
 				playAnim('idle');
 			case 'b0llet':

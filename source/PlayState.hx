@@ -674,7 +674,7 @@ class PlayState extends MusicBeatState
 			}
 			case 'stage':
 				{
-						defaultCamZoom = 0.9;
+						defaultCamZoom = 0.6;
 						curStage = 'stage';
 						var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('stageback'));
 						bg.antialiasing = true;
@@ -713,7 +713,7 @@ class PlayState extends MusicBeatState
 				}
 			default:
 			{
-					defaultCamZoom = 0.9;
+					defaultCamZoom = 0.6;
 					curStage = 'stage';
 					var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('stageback'));
 					bg.antialiasing = true;
@@ -807,7 +807,7 @@ class PlayState extends MusicBeatState
 				camPos.y = dad.getMidpoint().y + 100 + (dad.getMidpoint().y / 1.75);
 			case 'kitten':
 				dad.x -= 250;
-				dad.y -= 700;
+				dad.y -= 750;
 				camPos.x = dad.getMidpoint().x + 100;
 				camPos.y = dad.getMidpoint().y - 25;
 		}
