@@ -502,18 +502,20 @@ class Character extends FlxSprite
 
 				playAnim('idle');
 			case 'kitten':
-				frames = Paths.getSparrowAtlas('kitten_assets');
+				frames = Paths.getSparrowAtlas('characters/Kitten');
 				animation.addByPrefix('idle', 'Idle', 24, false);
 				animation.addByPrefix('singUP', 'Up', 24, false);
 				animation.addByPrefix('singDOWN', 'Down', 24, false);
-				animation.addByPrefix('singLEFT', 'Left', 24, false);
-				animation.addByPrefix('singRIGHT', 'Right', 24, false);
+				animation.addByPrefix('singLEFT', 'Back', 24, false);
+				animation.addByPrefix('singRIGHT', 'Forward', 24, false);
 
 				addOffset('idle');
-				addOffset("singUP");
-				addOffset("singRIGHT");
-				addOffset("singLEFT");
-				addOffset("singDOWN");
+				addOffset("singUP", 42, -19);
+				addOffset("singRIGHT", -13, -70);
+				addOffset("singLEFT", 35, -38);
+				addOffset("singDOWN", -32, -194);
+
+				setGraphicSize(Std.int(width / 2.625));
 
 				playAnim('idle');
 			case 'b0llet':

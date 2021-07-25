@@ -805,6 +805,11 @@ class PlayState extends MusicBeatState
 				dad.y -= 200;
 				camPos.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
 				camPos.y = dad.getMidpoint().y + 100 + (dad.getMidpoint().y / 1.75);
+			case 'kitten':
+				dad.x -= 250;
+				dad.y -= 700;
+				camPos.x = dad.getMidpoint().x + 100;
+				camPos.y = dad.getMidpoint().y - 25;
 		}
 
 
@@ -2051,6 +2056,9 @@ class PlayState extends MusicBeatState
 					case 'b0llet':
 						camFollow.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
 						camFollow.y = dad.getMidpoint().y + 100 + (dad.getMidpoint().y / 1.75);
+					case 'kitten':
+						camFollow.x = dad.getMidpoint().x + 100;
+						camFollow.y = dad.getMidpoint().y - 25;
 				}
 
 				if (dad.curCharacter == 'mom')
