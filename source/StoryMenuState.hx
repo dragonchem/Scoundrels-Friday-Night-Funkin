@@ -295,12 +295,12 @@ class StoryMenuState extends MusicBeatState
 			text = "no-fail enabled, press left or right to disable";
 		}
 		var name = new FlxText((grpWeekText.members[0].x + 5) + grpWeekText.members[0].width + 10, diffHeight + (65 * i), 400, text, 10);
-		name.setFormat(Paths.font("tf2build.ttf"), 15, FlxColor.WHITE, CENTER);
+		name.setFormat(Paths.font("tf2build.ttf"), 20, FlxColor.WHITE, CENTER);
 		name.borderStyle = OUTLINE;
 		name.antialiasing = true;
-		name.borderSize = 1;
-		name.borderQuality = 1;
-		name.borderColor = 0xFF00CBFF;
+		name.borderSize = 2;
+		name.borderQuality = 2;
+		name.borderColor = 0xFF872726;
 		name.color = FlxColor.WHITE;
 		txtName.push(name);
 		difficultySelectors.add(name);
