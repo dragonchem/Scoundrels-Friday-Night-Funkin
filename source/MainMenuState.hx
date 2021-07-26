@@ -1,5 +1,6 @@
 package;
 
+import flixel.input.gamepad.FlxGamepad;
 import Controls.KeyboardScheme;
 import flixel.FlxG;
 import flixel.FlxObject;
@@ -35,7 +36,6 @@ class MainMenuState extends MusicBeatState
 
 	var newGaming:FlxText;
 	var newGaming2:FlxText;
-	var newInput:Bool = true;
 	public static var firstStart:Bool = true;
 
 	public static var nightly:String = "";
@@ -67,7 +67,10 @@ class MainMenuState extends MusicBeatState
 		bg.setGraphicSize(Std.int(bg.width * 1.1));
 		bg.updateHitbox();
 		bg.screenCenter();
-		bg.antialiasing = true;
+		if(FlxG.save.data.antialiasing)
+			{
+				bg.antialiasing = true;
+			}
 		add(bg);
 
 		camFollow = new FlxObject(0, 0, 1, 1);
@@ -80,7 +83,10 @@ class MainMenuState extends MusicBeatState
 		magenta.updateHitbox();
 		magenta.screenCenter();
 		magenta.visible = false;
-		magenta.antialiasing = true;
+		if(FlxG.save.data.antialiasing)
+			{
+				magenta.antialiasing = true;
+			}
 		magenta.color = 0xFFfd719b;
 		add(magenta);
 		// magenta.scrollFactor.set();
@@ -101,7 +107,10 @@ class MainMenuState extends MusicBeatState
 			menuItem.screenCenter(X);
 			menuItems.add(menuItem);
 			menuItem.scrollFactor.set();
-			menuItem.antialiasing = true;
+			if(FlxG.save.data.antialiasing)
+				{
+					menuItem.antialiasing = true;
+				}
 			if (firstStart)
 				FlxTween.tween(menuItem,{y: 60 + (i * 160)},1 + (i * 0.25) ,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween) 
 					{ 
@@ -145,13 +154,29 @@ class MainMenuState extends MusicBeatState
 
 		if (!selectedSomethin)
 		{
-			if (controls.UP_P)
+			var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
+
+			if (gamepad != null)
+			{
+				if (gamepad.justPressed.DPAD_UP)
+				{
+					FlxG.sound.play(Paths.sound('scrollMenu'));
+					changeItem(-1);
+				}
+				if (gamepad.justPressed.DPAD_DOWN)
+				{
+					FlxG.sound.play(Paths.sound('scrollMenu'));
+					changeItem(1);
+				}
+			}
+
+			if (FlxG.keys.justPressed.UP)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(-1);
 			}
 
-			if (controls.DOWN_P)
+			if (FlxG.keys.justPressed.DOWN)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(1);
@@ -164,42 +189,49 @@ class MainMenuState extends MusicBeatState
 
 			if (controls.ACCEPT)
 			{
-				selectedSomethin = true;
-				FlxG.sound.play(Paths.sound('confirmMenu'));
-				
-				if (FlxG.save.data.flashing)
-					FlxFlicker.flicker(magenta, 1.1, 0.15, false);
-
-				menuItems.forEach(function(spr:FlxSprite)
+				if (optionShit[curSelected] == 'donate')
 				{
-					if (curSelected != spr.ID)
+					fancyOpenURL("https://ninja-muffin24.itch.io/funkin");
+				}
+				else
+				{
+					selectedSomethin = true;
+					FlxG.sound.play(Paths.sound('confirmMenu'));
+					
+					if (FlxG.save.data.flashing)
+						FlxFlicker.flicker(magenta, 1.1, 0.15, false);
+
+					menuItems.forEach(function(spr:FlxSprite)
 					{
-						FlxTween.tween(spr, {alpha: 0}, 1.3, {
-							ease: FlxEase.quadOut,
-							onComplete: function(twn:FlxTween)
-							{
-								spr.kill();
-							}
-						});
-					}
-					else
-					{
-						if (FlxG.save.data.flashing)
+						if (curSelected != spr.ID)
 						{
-							FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
-							{
-								goToState();
+							FlxTween.tween(spr, {alpha: 0}, 1.3, {
+								ease: FlxEase.quadOut,
+								onComplete: function(twn:FlxTween)
+								{
+									spr.kill();
+								}
 							});
 						}
 						else
 						{
-							new FlxTimer().start(1, function(tmr:FlxTimer)
+							if (FlxG.save.data.flashing)
 							{
-								goToState();
-							});
+								FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
+								{
+									goToState();
+								});
+							}
+							else
+							{
+								new FlxTimer().start(1, function(tmr:FlxTimer)
+								{
+									goToState();
+								});
+							}
 						}
-					}
-				});
+					});
+				}
 			}
 		}
 
@@ -229,7 +261,6 @@ class MainMenuState extends MusicBeatState
 				FlxG.switchState(new OptionsMenu());
 			case 'credits':
 				FlxG.switchState(new Credits());
-				trace("AAAAAAAAAH, I NEED A CREDITS MENU");
 		}
 	}
 

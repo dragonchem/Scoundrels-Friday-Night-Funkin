@@ -21,6 +21,7 @@ using StringTools;
 
 class StoryMenuState extends MusicBeatState
 {
+	var wimpmode:Bool = false;
 	var scoreText:FlxText;
 
 	var weekData:Array<Dynamic> = [
@@ -47,6 +48,8 @@ class StoryMenuState extends MusicBeatState
 		['dad', 'bf', 'gf'],
 		['dad', 'bf', 'gf'],
 	];
+
+	var babymode:FlxText;
 
 	var weekEnemy:Array<Array<String>> = [
 		['kitten'],
@@ -273,8 +276,7 @@ class StoryMenuState extends MusicBeatState
 		var i = 0;
 		for (name in text)
 		{
-			trace(name);
-			var name = new FlxText((grpWeekText.members[0].x + 5) + grpWeekText.members[0].width + 10, diffHeight + (75 * i), 400, name, 50);
+			var name = new FlxText((grpWeekText.members[0].x + 5) + grpWeekText.members[0].width + 10, diffHeight + (55 * i), 400, name, 50);
 			name.setFormat(Paths.font("tf2build.ttf"), 65, 0xFFe55777, CENTER);
 			name.borderStyle = OUTLINE;
 			name.antialiasing = true;
@@ -286,6 +288,22 @@ class StoryMenuState extends MusicBeatState
 			difficultySelectors.add(name);
 			i++;
 		}
+		i = 3;
+		var text = "no-fail disabled, press left or right to enable";
+		trace(wimpmode);
+		if (wimpmode) {
+			text = "no-fail enabled, press left or right to disable";
+		}
+		var name = new FlxText((grpWeekText.members[0].x + 5) + grpWeekText.members[0].width + 10, diffHeight + (65 * i), 400, text, 10);
+		name.setFormat(Paths.font("tf2build.ttf"), 15, FlxColor.WHITE, CENTER);
+		name.borderStyle = OUTLINE;
+		name.antialiasing = true;
+		name.borderSize = 1;
+		name.borderQuality = 1;
+		name.borderColor = 0xFF00CBFF;
+		name.color = FlxColor.WHITE;
+		txtName.push(name);
+		difficultySelectors.add(name);
 	}
 
 	override function update(elapsed:Float)
@@ -381,13 +399,18 @@ class StoryMenuState extends MusicBeatState
 			PlayState.campaignScore = 0;
 			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{
-				LoadingState.loadAndSwitchState(new PlayState(), true);
+				var playstate = new PlayState();
+				playstate.cannotDie = wimpmode;
+				LoadingState.loadAndSwitchState(playstate, true);
 			});
 		}
 	}
 
 	function changeDifficulty(change:Int = 0):Void
 	{
+		wimpmode = !wimpmode;
+		resetText();
+		addText(weekEnemy[curWeek], nameColors[curWeek]);
 		// if (curDifficulty < 0)
 		// 	curDifficulty = 2;
 		// if (curDifficulty > 2)
