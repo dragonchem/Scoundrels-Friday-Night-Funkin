@@ -100,4 +100,18 @@
 	<SubTexture name="GF Dancing Beat WHITE0027" x="6998" y="1523" width="699" height="642" frameX="-2" frameY="-6" frameWidth="703" frameHeight="648"/>
 	<SubTexture name="GF Dancing Beat WHITE0028" x="0" y="2171" width="699" height="642" frameX="-2" frameY="-6" frameWidth="703" frameHeight="648"/>
 	<SubTexture name="GF Dancing Beat WHITE0029" x="0" y="2171" width="699" height="642" frameX="-2" frameY="-6" frameWidth="703" frameHeight="648"/>
+	<SubTexture name="Kitten0000" x="699" y="2171" width="360" height="786" frameX="0" frameY="-28" frameWidth="381" frameHeight="827"/>
+	<SubTexture name="Kitten0001" x="699" y="2171" width="360" height="786" frameX="0" frameY="-28" frameWidth="381" frameHeight="827"/>
+	<SubTexture name="Kitten0002" x="1059" y="2171" width="380" height="827" frameX="-1" frameY="0" frameWidth="381" frameHeight="827"/>
+	<SubTexture name="Kitten0003" x="1059" y="2171" width="380" height="827" frameX="-1" frameY="0" frameWidth="381" frameHeight="827"/>
+	<SubTexture name="Kitten0004" x="1439" y="2171" width="365" height="779" frameX="-1" frameY="-40" frameWidth="381" frameHeight="827"/>
+	<SubTexture name="Kitten0005" x="1439" y="2171" width="365" height="779" frameX="-1" frameY="-40" frameWidth="381" frameHeight="827"/>
+	<SubTexture name="Kitten0006" x="1804" y="2171" width="359" height="760" frameX="-1" frameY="-61" frameWidth="381" frameHeight="827"/>
+	<SubTexture name="Kitten0007" x="1804" y="2171" width="359" height="760" frameX="-1" frameY="-61" frameWidth="381" frameHeight="827"/>
+	<SubTexture name="Kitten0008" x="699" y="2171" width="360" height="786" frameX="0" frameY="-28" frameWidth="381" frameHeight="827"/>
+	<SubTexture name="Kitten0009" x="699" y="2171" width="360" height="786" frameX="0" frameY="-28" frameWidth="381" frameHeight="827"/>
+	<SubTexture name="Kitten0010" x="699" y="2171" width="360" height="786" frameX="0" frameY="-28" frameWidth="381" frameHeight="827"/>
+	<SubTexture name="Kitten0011" x="699" y="2171" width="360" height="786" frameX="0" frameY="-28" frameWidth="381" frameHeight="827"/>
+	<SubTexture name="Kitten0012" x="699" y="2171" width="360" height="786" frameX="0" frameY="-28" frameWidth="381" frameHeight="827"/>
+	<SubTexture name="Kitten0013" x="699" y="2171" width="360" height="786" frameX="0" frameY="-28" frameWidth="381" frameHeight="827"/>
 </TextureAtlas>

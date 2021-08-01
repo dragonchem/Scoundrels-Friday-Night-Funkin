@@ -129,7 +129,7 @@ class Note extends FlxSprite
 			
 			switch (noteTypeCheck)
 			{
-				case 'pixel':
+				case '':
 					loadGraphic(Paths.image('weeb/pixelUI/arrows-pixels', 'week6'), true, 17, 17);
 					if (isSustainNote)
 						loadGraphic(Paths.image('weeb/pixelUI/arrowEnds', 'week6'), true, 7, 6);
@@ -219,7 +219,7 @@ class Note extends FlxSprite
 				prevNote.animation.play(dataColor[prevNote.originColor] + 'hold');
 				prevNote.updateHitbox();
 
-				prevNote.scale.y *= (stepHeight + 1) / prevNote.height; // + 1 so that there's no odd gaps as the notes scroll
+				prevNote.scale.y *= ((stepHeight + 1) / prevNote.height) + 0.1; // + 1 so that there's no odd gaps as the notes scroll
 				prevNote.updateHitbox();
 				prevNote.noteYOff = Math.round(-prevNote.offset.y);
 

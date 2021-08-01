@@ -537,6 +537,25 @@ class Character extends FlxSprite
 
 				setGraphicSize(Std.int(width / 1.75));
 				updateHitbox();
+			case 'alm':
+				tex = Paths.getSparrowAtlas('characters/Alm');
+				frames = tex;
+				animation.addByPrefix('idle', 'Idle', 24, false);
+				animation.addByPrefix('singUP', 'Up', 24, false);
+				animation.addByPrefix('singDOWN', 'Down', 24, false);
+				animation.addByPrefix('singLEFT', 'Left', 24, false);
+				animation.addByPrefix('singRIGHT', 'Right', 24, false);
+
+				addOffset('idle', 0, 0);
+				addOffset("singUP", -14, 56);
+				addOffset("singRIGHT", -24, -58);
+				addOffset("singLEFT", 21, 14);
+				addOffset("singDOWN", -122, -139);
+
+				playAnim('idle');
+
+				setGraphicSize(Std.int(width / 2.25));
+				updateHitbox();
 		}
 
 		dance();

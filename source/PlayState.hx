@@ -179,7 +179,7 @@ class PlayState extends MusicBeatState
 
 	private var camGame:FlxCamera;
 	public var cannotDie = false;
-	public var wimpmode: Bool;
+	public static var wimpmode: Bool;
 
 	public static var offsetTesting:Bool = false;
 
@@ -957,11 +957,11 @@ class PlayState extends MusicBeatState
 		switch (gfCheck)
 		{
 			case 'gf-car':
-				curGf = 'gf-car';
+				curGf = 'gf';
 			case 'gf-christmas':
-				curGf = 'gf-christmas';
+				curGf = 'gf';
 			case 'gf-pixel':
-				curGf = 'gf-pixel';
+				curGf = 'gf';
 			default:
 				curGf = 'gf';
 		}
@@ -1032,6 +1032,11 @@ class PlayState extends MusicBeatState
 				dad.y -= 750;
 				camPos.x = dad.getMidpoint().x + 100;
 				camPos.y = dad.getMidpoint().y - 25;
+			case 'alm':
+				dad.x -= 300;
+				dad.y -= 450;
+				camPos.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 2.25);
+				camPos.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 2.25);
 		}
 
 		boyfriend = new Boyfriend(770, 450, SONG.player1);
@@ -2798,6 +2803,9 @@ class PlayState extends MusicBeatState
 					case 'kitten':
 						camFollow.x = dad.getMidpoint().x + 100;
 						camFollow.y = dad.getMidpoint().y - 25;
+					case 'alm':
+						camFollow.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
+						camFollow.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 1.75);
 				}
 			}
 
