@@ -50,7 +50,7 @@ class Credits extends MusicBeatState
         credits.push(new Credit('TheLazyKitten', true, 'https://www.youtube.com/channel/UCzvcYe9Km0VZy9SAtZlNCdg'));
         credits.push(new Credit('BOllet', true, 'https://www.youtube.com/channel/UCX6ts-wfdL1eNWySIgZZeUQ'));
         credits.push(new Credit('DeltaUnknown', true, 'https://www.youtube.com/channel/UCfRBw20j2mWn_QSREv7ngjg'));
-        credits.push(new Credit('Alm', true, 'https://www.youtube.com/channel/UCr9Ertq8EjBoAjTYwdwTAWQ'));
+        credits.push(new Credit('Alm', true, ''));
         credits.push(new Credit('', false, ''));
         credits.push(new Credit('icon by', false, ''));
         credits.push(new Credit('Mrtoni', true, 'https://twitter.com/murtoni_98'));
@@ -104,11 +104,13 @@ class Credits extends MusicBeatState
         if (controls.ACCEPT) {
             var credit: Credit = credits[curSelected];
             if (credit.getClickable()) {
-                #if linux
-                Sys.command('/usr/bin/xdg-open', [credit.getUrl(), "&"]);
-                #else
-                FlxG.openURL(credit.getUrl());
-                #end
+                if (credit.getUrl() != '') {
+                    #if linux
+                    Sys.command('/usr/bin/xdg-open', [credit.getUrl(), "&"]);
+                    #else
+                    FlxG.openURL(credit.getUrl());
+                    #end
+                }
             }
         }
         FlxG.save.flush();

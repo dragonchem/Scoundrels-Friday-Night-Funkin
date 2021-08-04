@@ -1808,6 +1808,11 @@ class PlayState extends MusicBeatState
 			#end
 		}
 
+		trace(PlayState.SONG.instVolume);
+		if (PlayState.SONG.instVolume == null) {
+			PlayState.SONG.instVolume = 1;
+		}
+		FlxG.sound.music.volume = PlayState.SONG.instVolume;
 		FlxG.sound.music.onComplete = endSong;
 		vocals.play();
 
