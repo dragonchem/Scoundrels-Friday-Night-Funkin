@@ -897,14 +897,14 @@ class PlayState extends MusicBeatState
 					}
 				default:
 					{
-						defaultCamZoom = 0.9;
+						defaultCamZoom = 0.7;
 						curStage = 'stage';
 						var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('stageback'));
 						if(FlxG.save.data.antialiasing)
 							{
 								bg.antialiasing = true;
 							}
-						bg.scrollFactor.set(0.9, 0.9);
+						bg.scrollFactor.set(0.7, 0.7);
 						bg.active = false;
 						add(bg);
 
@@ -1037,6 +1037,13 @@ class PlayState extends MusicBeatState
 				dad.y -= 450;
 				camPos.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 2.25);
 				camPos.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 2.25);
+			case 'duo':
+				dad.x -= 250;
+				dad.y -= 650;
+				camPos.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
+				camPos.y = dad.getMidpoint().y + 700 + (dad.getMidpoint().y / 1.75);
+				// camPos.x = dad.getMidpoint().x + (dad.getMidpoint().x / 1.75);
+				// camPos.y = dad.getMidpoint().y + (dad.getMidpoint().y / 1.75);
 		}
 
 		boyfriend = new Boyfriend(770, 450, SONG.player1);
@@ -2550,6 +2557,7 @@ class PlayState extends MusicBeatState
 		if (healthBar.percent > 80)
 			iconP2.animation.curAnim.curFrame = 1;
 		else
+			trace(iconP2.animation.curAnim);
 			iconP2.animation.curAnim.curFrame = 0;
 
 		/* if (FlxG.keys.justPressed.NINE)
@@ -2811,6 +2819,9 @@ class PlayState extends MusicBeatState
 					case 'alm':
 						camFollow.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
 						camFollow.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 1.75);
+					case 'duo':
+						camFollow.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
+						camFollow.y = dad.getMidpoint().y + 700 + (dad.getMidpoint().y / 1.75);
 				}
 			}
 

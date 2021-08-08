@@ -31,7 +31,9 @@ class MenuCharacter extends FlxSprite
 		'parents-christmas' => new CharacterSetting(100, 130, 1.8),
 		'senpai' => new CharacterSetting(-40, -45, 1.4),
 		'kitten' => new CharacterSetting(120, 250, 0.95),
-		'b0llet' => new CharacterSetting(280, 200, 2.2)
+		'b0llet' => new CharacterSetting(280, 200, 2.2),
+		'alm' => new CharacterSetting(280, 200, 2.2),
+		'duo' => new CharacterSetting(280, 200, 2.2)
 	];
 
 	private var flipped:Bool = false;
@@ -56,6 +58,8 @@ class MenuCharacter extends FlxSprite
 		animation.addByPrefix('senpai', "SENPAI idle Black Lines", 24);
 		animation.addByPrefix('kitten', "Kitten", 24);
 		animation.addByPrefix('b0llet', "B0llet", 24);
+		animation.addByPrefix('alm', "Alm", 24);
+		animation.addByPrefix('duo', "Duo", 24);
 
 		setGraphicSize(Std.int(width * scale));
 		updateHitbox();

@@ -40,10 +40,10 @@ class StoryMenuState extends MusicBeatState
 
 	var weekCharacters:Array<Dynamic> = [
 		['kitten', 'bf', 'gf'],
-		['dad', 'bf', 'gf'],
+		['alm', 'bf', 'gf'],
 		['b0llet', 'bf', 'gf'],
 		['dad', 'bf', 'gf'],
-		['parents-christmas', 'bf', 'gf'],
+		['duo', 'bf', 'gf'],
 		['dad', 'bf', 'gf'],
 		['dad', 'bf', 'gf'],
 		['dad', 'bf', 'gf'],
