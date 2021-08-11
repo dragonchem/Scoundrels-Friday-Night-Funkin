@@ -36,3 +36,5 @@ Tutorial:bf-pixel:0
 Destruction Dance:dad:2
 Build Our Machine:kitten:1
 Gritzy Desert:dad:4
+Cynthia:dad:4
+Final Battle:b0llet:4
