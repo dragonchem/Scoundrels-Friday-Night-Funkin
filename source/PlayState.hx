@@ -463,11 +463,11 @@ class PlayState extends MusicBeatState
 					"Only then I will even CONSIDER letting you\ndate my daughter!"
 				];
 			case 'senpai':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('data/senpai/senpaiDialogue'));
+				dialogue = CoolUtil.coolTextFile(Paths.txt('senpai/senpaiDialogue'));
 			case 'roses':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('data/roses/rosesDialogue'));
+				dialogue = CoolUtil.coolTextFile(Paths.txt('roses/rosesDialogue'));
 			case 'thorns':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('data/thorns/thornsDialogue'));
+				dialogue = CoolUtil.coolTextFile(Paths.txt('thorns/thornsDialogue'));
 		}
 
 		// defaults if no stage was found in chart
@@ -1044,6 +1044,11 @@ class PlayState extends MusicBeatState
 				camPos.y = dad.getMidpoint().y + 700 + (dad.getMidpoint().y / 1.75);
 				// camPos.x = dad.getMidpoint().x + (dad.getMidpoint().x / 1.75);
 				// camPos.y = dad.getMidpoint().y + (dad.getMidpoint().y / 1.75);
+			case 'chantley':
+				dad.x -= 300;
+				dad.y -= 500;
+				camPos.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 2.25);
+				camPos.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 2.25);
 		}
 
 		boyfriend = new Boyfriend(770, 450, SONG.player1);
@@ -2822,6 +2827,9 @@ class PlayState extends MusicBeatState
 					case 'duo':
 						camFollow.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
 						camFollow.y = dad.getMidpoint().y + 700 + (dad.getMidpoint().y / 1.75);
+					case 'chantley':
+						camFollow.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
+						camFollow.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 1.75);
 				}
 			}
 

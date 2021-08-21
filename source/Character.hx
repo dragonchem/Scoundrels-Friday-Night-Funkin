@@ -577,6 +577,27 @@ class Character extends FlxSprite
 
 				setGraphicSize(Std.int(width / 1.75));
 				updateHitbox();
+			case 'chantley':
+				tex = Paths.getSparrowAtlas('characters/Chantley');
+				frames = tex;
+				animation.addByPrefix('idle', 'Idle', 24, false);
+				animation.addByPrefix('singUP', 'Up', 24, false);
+				animation.addByPrefix('singDOWN', 'Down', 24, false);
+				animation.addByPrefix('singLEFT', 'Left', 24, false);
+				animation.addByPrefix('singRIGHT', 'Right', 24, false);
+
+				addOffset('idle', 0, 0);
+				addOffset("singUP", 32, 29);
+				addOffset("singRIGHT", 87, -152);
+				addOffset("singLEFT", 319, -41);
+				addOffset("singDOWN", -4, -357);
+
+				playAnim('idle');
+
+				trace('duo');
+
+				setGraphicSize(Std.int(width / 2.25));
+				updateHitbox();
 		}
 
 		dance();
