@@ -1049,6 +1049,11 @@ class PlayState extends MusicBeatState
 				dad.y -= 500;
 				camPos.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 2.25);
 				camPos.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 2.25);
+			case 'cuttle':
+				dad.x -= 300;
+				dad.y -= 500;
+				camPos.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 2.25);
+				camPos.y = dad.getMidpoint().y + 150 + (dad.getMidpoint().y / 2.25);
 		}
 
 		boyfriend = new Boyfriend(770, 450, SONG.player1);
@@ -1530,13 +1535,13 @@ class PlayState extends MusicBeatState
 				case 0:
 					trace(curSong);
 					if (curSong.toLowerCase() == 'claw' || curSong.toLowerCase() == 'cammy' || curSong.toLowerCase() == 'blanka' || curSong.toLowerCase() == 'alex') {
-						FlxG.sound.play(Paths.sound('SF2/SFintroRound' + altSuffix), 0.6);
+						FlxG.sound.play(Paths.sound('SF2/SFintroRound' + altSuffix), 0.3);
 					}
 					else if (curSong.toLowerCase() == 'boxer') {
-						FlxG.sound.play(Paths.sound('SF2/SFintroFinal' + altSuffix), 0.6);
+						FlxG.sound.play(Paths.sound('SF2/SFintroFinal' + altSuffix), 0.3);
 					}
 					else {
-						FlxG.sound.play(Paths.sound('intro3' + altSuffix), 0.6);
+						FlxG.sound.play(Paths.sound('intro3' + altSuffix), 0.3);
 					}
 				case 1:
 					var ready:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[0]));
@@ -1556,19 +1561,19 @@ class PlayState extends MusicBeatState
 						}
 					});
 					if (curSong.toLowerCase() == 'cammy' || curSong.toLowerCase() == 'alex') {
-						FlxG.sound.play(Paths.sound('SF2/SFintro1' + altSuffix), 0.6);
+						FlxG.sound.play(Paths.sound('SF2/SFintro1' + altSuffix), 0.3);
 					}
 					else if (curSong.toLowerCase() == 'claw') {
-						FlxG.sound.play(Paths.sound('SF2/SFintro2' + altSuffix), 0.6);
+						FlxG.sound.play(Paths.sound('SF2/SFintro2' + altSuffix), 0.3);
 					}
 					else if (curSong.toLowerCase() == 'blanka') {
-						FlxG.sound.play(Paths.sound('SF2/SFintro3' + altSuffix), 0.6);
+						FlxG.sound.play(Paths.sound('SF2/SFintro3' + altSuffix), 0.3);
 					}
 					else if (curSong.toLowerCase() == 'boxer') {
-						FlxG.sound.play(Paths.sound('SF2/SFintroRound' + altSuffix), 0.6);
+						FlxG.sound.play(Paths.sound('SF2/SFintroRound' + altSuffix), 0.3);
 					}
 					else {
-						FlxG.sound.play(Paths.sound('intro2' + altSuffix), 0.6);
+						FlxG.sound.play(Paths.sound('intro2' + altSuffix), 0.3);
 					}
 				case 2:
 					var set:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[1]));
@@ -1590,7 +1595,7 @@ class PlayState extends MusicBeatState
 						
 					}
 					else {
-						FlxG.sound.play(Paths.sound('intro1' + altSuffix), 0.6);
+						FlxG.sound.play(Paths.sound('intro1' + altSuffix), 0.3);
 					}
 				case 3:
 					var go:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[2]));
@@ -1611,10 +1616,10 @@ class PlayState extends MusicBeatState
 						}
 					});
 					if (curSong.toLowerCase() == 'boxer' || curSong.toLowerCase() == 'cammy' || curSong.toLowerCase() == 'blanka' || curSong.toLowerCase() == 'claw' || curSong.toLowerCase() == 'alex') {
-						FlxG.sound.play(Paths.sound('SF2/SFintroFight' + altSuffix), 0.6);
+						FlxG.sound.play(Paths.sound('SF2/SFintroFight' + altSuffix), 0.3);
 					}
 					else {
-						FlxG.sound.play(Paths.sound('introGo' + altSuffix), 0.6);
+						FlxG.sound.play(Paths.sound('introGo' + altSuffix), 0.3);
 					}
 				case 4:
 			}
@@ -2830,6 +2835,9 @@ class PlayState extends MusicBeatState
 					case 'chantley':
 						camFollow.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
 						camFollow.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 1.75);
+					case 'cuttle':
+						camFollow.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
+						camFollow.y = dad.getMidpoint().y + 150 + (dad.getMidpoint().y / 1.75);
 				}
 			}
 

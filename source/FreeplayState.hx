@@ -166,6 +166,10 @@ class FreeplayState extends MusicBeatState
 			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, songs[i].songName, true, false, true);
 			songText.isMenuItem = true;
 			songText.targetY = i;
+			if (songs[i].songName.toLowerCase() == 'tutorial') {
+				trace("TUTORIAL BITCH");
+				songText.Tutorial = true;
+			}
 			grpSongs.add(songText);
 
 			var icon:HealthIcon = new HealthIcon(songs[i].songCharacter);
@@ -275,7 +279,7 @@ class FreeplayState extends MusicBeatState
 			lerpScore = intendedScore;
 
 		scoreText.text = "PERSONAL BEST:" + lerpScore;
-		comboText.text = combo + '\n';
+		// comboText.text = combo + '\n';
 
 		if (FlxG.sound.music.volume > 0.8)
 		{
@@ -399,7 +403,7 @@ class FreeplayState extends MusicBeatState
 		intendedScore = Highscore.getScore(songHighscore, curDifficulty);
 		combo = Highscore.getCombo(songHighscore, curDifficulty);
 		#end
-		// diffCalcText.text = 'RATING: ${DiffCalc.CalculateDiff(songData.get(songs[curSelected].songName)[curDifficulty])}';
+		diffCalcText.text = 'RATING: ${DiffCalc.CalculateDiff(songData.get(songs[curSelected].songName)[curDifficulty])}';
 		diffText.text = songs[curSelected].songCharacter.toUpperCase();
 		if (wimpmode) {
 			diffText.text += ' NO-FAIL';
@@ -413,14 +417,14 @@ class FreeplayState extends MusicBeatState
 		#end
 
 		// NGio.logEvent('Fresh');
-		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+		FlxG.sound.play(Paths.sound('scrollMenu'), 0.21);
 
 
 
 		curSelected += change;
 
 		if (curSelected < 0)
-			curSelected = songs.length - 1;
+			curSelected = songs.length - 2;
 		if (curSelected >= songs.length)
 			curSelected = 0;
 
@@ -440,7 +444,7 @@ class FreeplayState extends MusicBeatState
 		// lerpScore = 0;
 		#end
 
-		// diffCalcText.text = 'RATING: ${DiffCalc.CalculateDiff(songData.get(songs[curSelected].songName)[curDifficulty])}';
+		diffCalcText.text = 'RATING: ${DiffCalc.CalculateDiff(songData.get(songs[curSelected].songName)[curDifficulty])}';
 		
 		#if PRELOAD_ALL
 		if (songs[curSelected].songCharacter == "sm")

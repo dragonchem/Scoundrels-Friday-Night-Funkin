@@ -126,13 +126,13 @@ class KeyBindMenu extends FlxSubState
             case "select":
                 if (FlxG.keys.justPressed.UP)
                 {
-                    FlxG.sound.play(Paths.sound('scrollMenu'));
+                    FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
                     changeItem(-1);
                 }
 
                 if (FlxG.keys.justPressed.DOWN)
                 {
-                    FlxG.sound.play(Paths.sound('scrollMenu'));
+                    FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
                     changeItem(1);
                 }
 
@@ -143,7 +143,7 @@ class KeyBindMenu extends FlxSubState
                 }
 
                 if (FlxG.keys.justPressed.ENTER){
-                    FlxG.sound.play(Paths.sound('scrollMenu'));
+                    FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
                     state = "input";
                 }
                 else if(FlxG.keys.justPressed.ESCAPE){
@@ -156,19 +156,19 @@ class KeyBindMenu extends FlxSubState
                 {
                     if (gamepad.justPressed.DPAD_UP)
                     {
-                        FlxG.sound.play(Paths.sound('scrollMenu'));
+                        FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
                         changeItem(-1);
                         textUpdate();
                     }
                     if (gamepad.justPressed.DPAD_DOWN)
                     {
-                        FlxG.sound.play(Paths.sound('scrollMenu'));
+                        FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
                         changeItem(1);
                         textUpdate();
                     }
 
                     if (gamepad.justPressed.START && frames > 10){
-                        FlxG.sound.play(Paths.sound('scrollMenu'));
+                        FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
                         state = "input";
                     }
                     else if(gamepad.justPressed.LEFT_TRIGGER){
@@ -193,7 +193,7 @@ class KeyBindMenu extends FlxSubState
                     if(FlxG.keys.justPressed.ESCAPE){ // just in case you get stuck
                         gpKeys[curSelected] = tempKey;
                         state = "select";
-                        FlxG.sound.play(Paths.sound('confirmMenu'));
+                        FlxG.sound.play(Paths.sound('confirmMenu'), 0.25);
                     }
 
                     if (gamepad.justPressed.START)
@@ -218,7 +218,7 @@ class KeyBindMenu extends FlxSubState
                     if(FlxG.keys.justPressed.ESCAPE){
                         keys[curSelected] = tempKey;
                         state = "select";
-                        FlxG.sound.play(Paths.sound('confirmMenu'));
+                        FlxG.sound.play(Paths.sound('confirmMenu'), 0.25);
                     }
                     else if(FlxG.keys.justPressed.ENTER){
                         addKey(defaultKeys[curSelected]);
@@ -338,7 +338,7 @@ class KeyBindMenu extends FlxSubState
 
         if(shouldReturn){
             gpKeys[curSelected] = r;
-            FlxG.sound.play(Paths.sound('scrollMenu'));
+            FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
         }
         else{
             gpKeys[curSelected] = tempKey;
@@ -383,7 +383,7 @@ class KeyBindMenu extends FlxSubState
 
         if(shouldReturn){
             keys[curSelected] = r;
-            FlxG.sound.play(Paths.sound('scrollMenu'));
+            FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
         }
         else{
             keys[curSelected] = tempKey;

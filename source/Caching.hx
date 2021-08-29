@@ -147,36 +147,40 @@ class Caching extends MusicBeatState
 
 	function cache()
 	{
-		trace("LOADING: " + toBeDone + " OBJECTS.");
+		#if debug
+			FlxG.switchState(new TitleState());
+		#else
+			trace("LOADING: " + toBeDone + " OBJECTS.");
 
-		for (i in images)
-		{
-			var replaced = i.replace(".png","");
-			var data:BitmapData = BitmapData.fromFile("assets/shared/images/characters/" + i);
-			trace('id ' + replaced + ' file - assets/shared/images/characters/' + i + ' ${data.width}');
-			var graph = FlxGraphic.fromBitmapData(data);
-			graph.persist = true;
-			graph.destroyOnNoUse = false;
-			bitmapData.set(replaced,graph);
-			done++;
-		}
+			for (i in images)
+			{
+				var replaced = i.replace(".png","");
+				var data:BitmapData = BitmapData.fromFile("assets/shared/images/characters/" + i);
+				trace('id ' + replaced + ' file - assets/shared/images/characters/' + i + ' ${data.width}');
+				var graph = FlxGraphic.fromBitmapData(data);
+				graph.persist = true;
+				graph.destroyOnNoUse = false;
+				bitmapData.set(replaced,graph);
+				done++;
+			}
 
-		for (i in music)
-		{
-			FlxG.sound.cache(Paths.inst(i));
-			FlxG.sound.cache(Paths.voices(i));
-			trace("cached " + i);
-			done++;
-		}
+			for (i in music)
+			{
+				FlxG.sound.cache(Paths.inst(i));
+				FlxG.sound.cache(Paths.voices(i));
+				trace("cached " + i);
+				done++;
+			}
 
 
-		trace("Finished caching...");
+			trace("Finished caching...");
 
-		loaded = true;
+			loaded = true;
 
-		trace(Assets.cache.hasBitmapData('GF_assets'));
+			trace(Assets.cache.hasBitmapData('GF_assets'));
 
-		FlxG.switchState(new TitleState());
+			FlxG.switchState(new TitleState());
+		#end
 	}
 
 }

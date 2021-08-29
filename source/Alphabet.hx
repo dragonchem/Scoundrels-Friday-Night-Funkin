@@ -21,6 +21,7 @@ class Alphabet extends FlxSpriteGroup
 
 	// for menu shit
 	public var targetY:Float = 0;
+	public var Tutorial:Bool = false;
 	public var isMenuItem:Bool = false;
 
 	public var credit:Bool = false;
@@ -279,10 +280,18 @@ class Alphabet extends FlxSpriteGroup
 	{
 		if (isMenuItem)
 		{
-			var scaledY = FlxMath.remapToRange(targetY, 0, 1, 0, 1.3);
-
-			y = FlxMath.lerp(y, (scaledY * 120) + (FlxG.height * 0.48), 0.30);
-			x = FlxMath.lerp(x, (targetY * 20) + 90, 0.30);
+			if (Tutorial) {
+				var scaledY = FlxMath.remapToRange(targetY + 1, 0, 1, 0, 1.3);
+	
+				y = FlxMath.lerp(y, (scaledY * 120) + (FlxG.height * 0.48), 0.30);
+				x = FlxMath.lerp(x, (targetY + 1 * 20) + 90, 0.30);
+			}
+			else {
+				var scaledY = FlxMath.remapToRange(targetY, 0, 1, 0, 1.3);
+	
+				y = FlxMath.lerp(y, (scaledY * 120) + (FlxG.height * 0.48), 0.30);
+				x = FlxMath.lerp(x, (targetY * 20) + 90, 0.30);
+			}
 		}
 
 		super.update(elapsed);

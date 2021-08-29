@@ -50,6 +50,7 @@ class HealthIcon extends FlxSprite
 		animation.add('alm', [24, 25], 0, false, isPlayer);
 		animation.add('duo', [24, 25], 0, false, isPlayer);
 		animation.add('chantley', [24, 25], 0, false, isPlayer);
+		animation.add('cuttle', [24, 25], 0, false, isPlayer);
 		animation.play(char);
 
 		switch(char)

@@ -181,7 +181,7 @@ class DialogueBox extends FlxSpriteGroup
 		{
 			remove(dialogue);
 				
-			FlxG.sound.play(Paths.sound('clickText'), 0.8);
+			FlxG.sound.play(Paths.sound('clickText'), 0.4);
 
 			if (dialogueList[1] == null && dialogueList[0] != null)
 			{

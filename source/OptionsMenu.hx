@@ -163,12 +163,12 @@ class OptionsMenu extends MusicBeatState
 			{
 				if (gamepad.justPressed.DPAD_UP)
 				{
-					FlxG.sound.play(Paths.sound('scrollMenu'));
+					FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
 					changeSelection(-1);
 				}
 				if (gamepad.justPressed.DPAD_DOWN)
 				{
-					FlxG.sound.play(Paths.sound('scrollMenu'));
+					FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
 					changeSelection(1);
 				}
 			}
@@ -278,7 +278,7 @@ class OptionsMenu extends MusicBeatState
 		// NGio.logEvent("Fresh");
 		#end
 		
-		FlxG.sound.play(Paths.sound("scrollMenu"), 0.4);
+		FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
 
 		curSelected += change;
 

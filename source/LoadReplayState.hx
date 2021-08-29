@@ -241,7 +241,7 @@ class LoadReplayState extends MusicBeatState
 		// NGio.logEvent('Fresh');
 		#end
 		
-		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+		FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
 
 		curSelected += change;
 

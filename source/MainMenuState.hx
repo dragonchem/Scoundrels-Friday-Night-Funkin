@@ -160,25 +160,25 @@ class MainMenuState extends MusicBeatState
 			{
 				if (gamepad.justPressed.DPAD_UP)
 				{
-					FlxG.sound.play(Paths.sound('scrollMenu'));
+					FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
 					changeItem(-1);
 				}
 				if (gamepad.justPressed.DPAD_DOWN)
 				{
-					FlxG.sound.play(Paths.sound('scrollMenu'));
+					FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
 					changeItem(1);
 				}
 			}
 
 			if (FlxG.keys.justPressed.UP)
 			{
-				FlxG.sound.play(Paths.sound('scrollMenu'));
+				FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
 				changeItem(-1);
 			}
 
 			if (FlxG.keys.justPressed.DOWN)
 			{
-				FlxG.sound.play(Paths.sound('scrollMenu'));
+				FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
 				changeItem(1);
 			}
 
@@ -196,7 +196,7 @@ class MainMenuState extends MusicBeatState
 				else
 				{
 					selectedSomethin = true;
-					FlxG.sound.play(Paths.sound('confirmMenu'));
+					FlxG.sound.play(Paths.sound('confirmMenu'), 0.25);
 					
 					if (FlxG.save.data.flashing)
 						FlxFlicker.flicker(magenta, 1.1, 0.15, false);
