@@ -1053,7 +1053,7 @@ class PlayState extends MusicBeatState
 				dad.x -= 300;
 				dad.y -= 500;
 				camPos.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 2.25);
-				camPos.y = dad.getMidpoint().y + 150 + (dad.getMidpoint().y / 2.25);
+				camPos.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 2.25);
 		}
 
 		boyfriend = new Boyfriend(770, 450, SONG.player1);
@@ -1211,7 +1211,7 @@ class PlayState extends MusicBeatState
 		add(healthBar);
 
 		// Add Kade Engine watermark
-		kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " " + (storyDifficulty == 2 ? "Hard" : storyDifficulty == 1 ? "Normal" : "Easy") + (Main.watermarks ? " - KE " + MainMenuState.kadeEngineVer : ""), 16);
+		kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " " + (Main.watermarks ? " - KE " + MainMenuState.kadeEngineVer : ""), 16);
 		kadeEngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 		kadeEngineWatermark.scrollFactor.set();
 		add(kadeEngineWatermark);
@@ -2837,7 +2837,7 @@ class PlayState extends MusicBeatState
 						camFollow.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 1.75);
 					case 'cuttle':
 						camFollow.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
-						camFollow.y = dad.getMidpoint().y + 150 + (dad.getMidpoint().y / 1.75);
+						camFollow.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 1.75);
 				}
 			}
 
