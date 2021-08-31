@@ -49,7 +49,6 @@ class Credits extends MusicBeatState
         credits.push(new Credit('maps and music by', false, ''));
         credits.push(new Credit('TheLazyKitten', true, 'https://www.youtube.com/channel/UCzvcYe9Km0VZy9SAtZlNCdg'));
         credits.push(new Credit('BOllet', true, 'https://www.youtube.com/channel/UCX6ts-wfdL1eNWySIgZZeUQ'));
-        credits.push(new Credit('DeltaUnknown', true, 'https://www.youtube.com/channel/UCfRBw20j2mWn_QSREv7ngjg'));
         credits.push(new Credit('Alm', true, ''));
         credits.push(new Credit('', false, ''));
         credits.push(new Credit('icon by', false, ''));
@@ -61,8 +60,6 @@ class Credits extends MusicBeatState
         credits.push(new Credit('special thanks', false, ''));
         credits.push(new Credit('NyxTheShield (various tools)', true, 'https://twitter.com/nyxtheshield'));
         credits.push(new Credit('Thee Apple in yer Snapple (idea)', true, 'https://twitter.com/TheeSnApple'));
-        credits.push(new Credit('Travingel (motivation)', true, 'https://twitter.com/Travingel'));
-        credits.push(new Credit('Woops (inspiration)', true, 'https://twitter.com/woops'));
         credits.push(new Credit('', false, ''));
         credits.push(new Credit('and', false, ''));
         credits.push(new Credit(name, true, 'https://www.youtube.com/watch?v=Om_DzkZyxYo'));
