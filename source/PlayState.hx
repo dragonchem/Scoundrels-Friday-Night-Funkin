@@ -1052,8 +1052,13 @@ class PlayState extends MusicBeatState
 			case 'cuttle':
 				dad.x -= 300;
 				dad.y -= 500;
-				camPos.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 2.25);
-				camPos.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 2.25);
+				camPos.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
+				camPos.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 1.75);
+			case 'scoundrel':
+				dad.x -= 500;
+				dad.y -= 300;
+				camPos.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
+				camPos.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 1.75);
 		}
 
 		boyfriend = new Boyfriend(770, 450, SONG.player1);
@@ -2836,6 +2841,9 @@ class PlayState extends MusicBeatState
 						camFollow.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
 						camFollow.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 1.75);
 					case 'cuttle':
+						camFollow.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
+						camFollow.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 1.75);
+					case 'scoundrel':
 						camFollow.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
 						camFollow.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 1.75);
 				}

@@ -619,6 +619,27 @@ class Character extends FlxSprite
 
 				setGraphicSize(Std.int(width / 1.75));
 				updateHitbox();
+			case 'scoundrel':
+				tex = Paths.getSparrowAtlas('characters/Scoundrel');
+				frames = tex;
+				animation.addByPrefix('idle', 'Idle', 24, false);
+				animation.addByPrefix('singUP', 'Up', 24, false);
+				animation.addByPrefix('singDOWN', 'Down', 24, false);
+				animation.addByPrefix('singLEFT', 'Back', 24, false);
+				animation.addByPrefix('singRIGHT', 'Forward', 24, false);
+
+				addOffset('idle', 0, 0);
+				addOffset("singUP", -45, 339);
+				addOffset("singRIGHT", 0, -10);
+				addOffset("singLEFT", 83, 250);
+				addOffset("singDOWN", 0, 35);
+
+				playAnim('idle');
+
+				trace('duo');
+
+				setGraphicSize(Std.int(width / 1.75));
+				updateHitbox();
 		}
 
 		dance();
