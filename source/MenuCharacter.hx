@@ -33,7 +33,11 @@ class MenuCharacter extends FlxSprite
 		'kitten' => new CharacterSetting(120, 250, 0.95),
 		'b0llet' => new CharacterSetting(280, 200, 2.2),
 		'alm' => new CharacterSetting(280, 200, 2.2),
-		'duo' => new CharacterSetting(280, 200, 2.2)
+		'duo' => new CharacterSetting(280, 200, 2.2),
+		'cuttle' => new CharacterSetting(280, 200, 2.2),
+		'chantley' => new CharacterSetting(280, 200, 2.2),
+		'scoundrel' => new CharacterSetting(280, 200, 2.2),
+		'kingofshells' => new CharacterSetting(280, 200, 2.2)
 	];
 
 	private var flipped:Bool = false;
@@ -60,10 +64,13 @@ class MenuCharacter extends FlxSprite
 		animation.addByPrefix('b0llet', "B0llet", 24);
 		animation.addByPrefix('alm', "Alm", 24);
 		animation.addByPrefix('duo', "Duo", 24);
+		animation.addByPrefix('cuttle', "Cuttle", 24);
+		animation.addByPrefix('chantley', "Chantley", 24);
+		animation.addByPrefix('scoundrel', "Scoundrel", 24);
+		animation.addByPrefix('kingofshells', "Kitten", 24);
 
 		setGraphicSize(Std.int(width * scale));
 		updateHitbox();
-		trace(animation.getByName('kitten'));
 	}
 
 	public function setCharacter(character:String):Void
@@ -77,6 +84,8 @@ class MenuCharacter extends FlxSprite
 		{
 			visible = true;
 		}
+
+		trace(character);
 
 		animation.play(character);
 

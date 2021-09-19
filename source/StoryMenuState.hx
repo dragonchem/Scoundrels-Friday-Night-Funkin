@@ -26,12 +26,13 @@ class StoryMenuState extends MusicBeatState
 
 	var weekData:Array<Dynamic> = [
 		['Life Will Change', 'Take Over', 'Dance'],
-		['Mantis Lords', 'Hornet'],
-		['Cammy', 'Boxer', 'Blanka', 'Claw', 'Alex'],
-		['Main Menu', 'Tick Tock Clock', 'Waluigi Pinball'],
-		['Running in the Nineties', 'Ram Ranch', 'Hell'],
-		['Fist Bump'],
-		['Gritzy Desert', 'Popple and Rookie', 'In The Final']
+		['Seaside Hill', 'Chemical Plant', 'Mirage Saloon'],
+		['Popple and Rookie', 'Never Let Up', 'In The Final'],
+		['Cammy', 'Claw', 'Blanka', 'Boxer'],
+		['Mantis Lords', 'Hornet', 'Sealed Vessel'],
+		['Main Menu', 'Tick Tock Clock', 'Delphino Square', 'Waluigi Pinball'],
+		['Crocodile Cacophony', 'Gear Getaway', 'Gang Plank Galleon'],
+		['Running in the Nineties', 'Ram Ranch', 'Hell']
 	];
 	var curDifficulty:Int = 2;
 
@@ -39,24 +40,26 @@ class StoryMenuState extends MusicBeatState
 
 	var weekCharacters:Array<Dynamic> = [
 		['kitten', 'bf', 'gf'],
-		['alm', 'bf', 'gf'],
+		['cuttle', 'bf', 'gf'],
+		['kingofshells', 'bf', 'gf'],
 		['b0llet', 'bf', 'gf'],
+		['alm', 'bf', 'gf'],
 		['duo', 'bf', 'gf'],
-		['dad', 'bf', 'gf'],
-		['dad', 'bf', 'gf'],
-		['dad', 'bf', 'gf'],
+		['scoundrel', 'bf', 'gf'],
+		['chantley', 'bf', 'gf'],
 	];
 
 	var babymode:FlxText;
 
 	var weekEnemy:Array<Array<String>> = [
 		['kitten'],
-		['alm'],
-		['b0llet'],
-		['kitten', '&', 'b0llet'],
-		['chantley'],
 		['cuttle'],
-		['niels']
+		['kingofshells'],
+		['b0llet'],
+		['alm'],
+		['kitten', '&', 'b0llet'],
+		['scoundrel'],
+		['chantley']
 	];
 
 	var diffHeight:Float;
@@ -66,13 +69,16 @@ class StoryMenuState extends MusicBeatState
 			[0x00000000, 0xFFffa200]
 		],
 		[
-			[0x00000000, 0xFF48ff00]
+			[0x00000000, 0xFFFFFB00]
 		],
 		[
-			[0x00000000, 0xFF7f1f8a]
+			[0x00000000, 0xFF2DABB5]
 		],
 		[
-			[0x00000000, 0xFFa43139]
+			[0x00000000, 0xFF7F1F8A]
+		],
+		[
+			[0x00000000, 0xFF48FF00]
 		],
 		[
 			[0x00000000, 0xFFffa200],
@@ -80,25 +86,22 @@ class StoryMenuState extends MusicBeatState
 			[0x00000000, 0xFF7f1f8a]
 		],
 		[
-			[0x00000000, 0xFF0099FF]
+			[0x00000000, 0xFF476300]
 		],
 		[
-			[0x00000000, 0xFFfffb00]
-		],
-		[
-			[0x00000000, 0xFF2DABB5]
+			[0x00000000, 0xFFFF00DC]
 		],
 	];
 
 	var weekNames:Array<String> = [
-		"Average Persona Fan",
-		"German Twat",
-		"Gremlin",
-		"Horny",
-		"Karting Kombo",
-		"I'm sorry for your fingers",
-		"Sondic :)",
-		"M&L",
+		"average persona fan",
+		"Cuttle",
+		"Niels",
+		"unsanitary basement dweller",
+		"horny for hornet",
+		"baby game connoisseurs",
+		"the horny gorilla",
+		"clown."
 	];
 
 	var txtWeekTitle:FlxText;
@@ -273,8 +276,8 @@ class StoryMenuState extends MusicBeatState
 		var i = 0;
 		for (name in text)
 		{
-			var name = new FlxText((grpWeekText.members[0].x + 5) + grpWeekText.members[0].width + 10, diffHeight + (55 * i), 400, name, 50);
-			name.setFormat(Paths.font("tf2build.ttf"), 65, 0xFFe55777, CENTER);
+			var name = new FlxText((grpWeekText.members[0].x + 5) + grpWeekText.members[0].width + 35, diffHeight + (55 * i), 400, name, 50);
+			name.setFormat(Paths.font("tf2build.ttf"), 55, 0xFFe55777, CENTER);
 			name.borderStyle = OUTLINE;
 			name.antialiasing = true;
 			name.borderSize = 5;
@@ -291,7 +294,7 @@ class StoryMenuState extends MusicBeatState
 		if (wimpmode) {
 			text = "no-fail enabled, press left or right to disable";
 		}
-		var name = new FlxText((grpWeekText.members[0].x + 5) + grpWeekText.members[0].width + 10, diffHeight + (65 * i), 400, text, 10);
+		var name = new FlxText((grpWeekText.members[0].x + 5) + grpWeekText.members[0].width + 35, diffHeight + (65 * i), 400, text, 10);
 		name.setFormat(Paths.font("tf2build.ttf"), 20, FlxColor.WHITE, CENTER);
 		name.borderStyle = OUTLINE;
 		name.antialiasing = true;

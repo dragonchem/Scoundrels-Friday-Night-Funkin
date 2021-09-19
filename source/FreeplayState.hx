@@ -499,7 +499,17 @@ class FreeplayState extends MusicBeatState
 				// item.setGraphicSize(Std.int(item.width));
 			}
 		}
-		diffText.text = songs[curSelected].songCharacter.toUpperCase();
+
+		var text = songs[curSelected].songCharacter.toUpperCase();
+
+		if (songs[curSelected].songCharacter == 'duo') {
+			text = 'KITTEN & B0LLET';
+		}
+		else if (songs[curSelected].songCharacter.toLowerCase() == 'bf-pixel') {
+			text = 'MINEIRINHO';
+		}
+		diffText.text = text;
+
 		if (wimpmode) {
 			diffText.text += ' NO-FAIL';
 		}

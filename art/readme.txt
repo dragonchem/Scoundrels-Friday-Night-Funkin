@@ -31,7 +31,6 @@ BOllet
 Maps and music by
 TheLazyKitten
 BOllet
-DeltaUnknown
 Alm
 
 Icon by
