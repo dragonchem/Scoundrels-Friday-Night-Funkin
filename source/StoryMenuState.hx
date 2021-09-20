@@ -95,8 +95,8 @@ class StoryMenuState extends MusicBeatState
 
 	var weekNames:Array<String> = [
 		"average persona fan",
-		"Cuttle",
-		"Niels",
+		"big and loud",
+		"luigi lover",
 		"unsanitary basement dweller",
 		"horny for hornet",
 		"baby game connoisseurs",

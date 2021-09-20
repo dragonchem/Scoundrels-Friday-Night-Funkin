@@ -341,7 +341,6 @@ class AlphaCharacter extends FlxSprite
 			}
 			i++;
 		}
-		trace(isSymbol);
 		if (isSymbol) {
 			animation.addByPrefix(letter, letter, 24);
 		}
@@ -367,7 +366,6 @@ class AlphaCharacter extends FlxSprite
 
 	public function createSymbol(letter:String)
 	{
-		trace(letter.length);
 		switch (letter)
 		{
 			case '.':
@@ -429,8 +427,6 @@ class AlphaCharacter extends FlxSprite
 		}
 
 		updateHitbox();
-
-		trace(animation.name);
 
 		FlxG.log.add('the row' + row);
 
