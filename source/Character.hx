@@ -640,6 +640,44 @@ class Character extends FlxSprite
 
 				setGraphicSize(Std.int(width / 1.75));
 				updateHitbox();
+			case 'kingofshells':
+				tex = Paths.getSparrowAtlas('characters/KOS');
+				frames = tex;
+				animation.addByPrefix('idle', 'Idle', 24, false);
+				animation.addByPrefix('singUP', 'Up', 24, false);
+				animation.addByPrefix('singDOWN', 'Down', 24, false);
+				animation.addByPrefix('singLEFT', 'Back', 24, false);
+				animation.addByPrefix('singRIGHT', 'Forward', 24, false);
+
+				addOffset('idle', 0, 0);
+				addOffset("singUP", -4, 24);
+				addOffset("singRIGHT", 69, 62);
+				addOffset("singLEFT", 358, -64);
+				addOffset("singDOWN", 109, -110);
+
+				playAnim('idle');
+
+				setGraphicSize(Std.int(width / 5));
+				updateHitbox();
+			case 'kingofshells?':
+				tex = Paths.getSparrowAtlas('characters/KOS');
+				frames = tex;
+				animation.addByPrefix('idle', 'Idle', 24, false);
+				animation.addByPrefix('singUP', 'Up', 24, false);
+				animation.addByPrefix('singDOWN', 'Down', 24, false);
+				animation.addByPrefix('singLEFT', 'Back', 24, false);
+				animation.addByPrefix('singRIGHT', 'Forward', 24, false);
+
+				addOffset('idle', 0, 0);
+				addOffset("singUP", -10, 53);
+				addOffset("singRIGHT", 152, 136);
+				addOffset("singLEFT", 803, -144);
+				addOffset("singDOWN", 243, -248);
+
+				playAnim('idle');
+
+				setGraphicSize(Std.int(width / 2.25));
+				updateHitbox();
 		}
 
 		dance();

@@ -1060,6 +1060,16 @@ class PlayState extends MusicBeatState
 				dad.y -= 300;
 				camPos.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
 				camPos.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 1.75);
+			case 'kingofshells':
+				dad.x -= 300;
+				dad.y -= 300;
+				camPos.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 5);
+				camPos.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 5);
+			case 'kingofshells?':
+				dad.x -= 300;
+				dad.y -= 600;
+				camPos.x = dad.getMidpoint().x + 300 + (dad.getMidpoint().x / 2.25);
+				camPos.y = dad.getMidpoint().y - 400 + (dad.getMidpoint().y / 2.25);
 		}
 
 		boyfriend = new Boyfriend(770, 450, SONG.player1);
@@ -2220,6 +2230,11 @@ class PlayState extends MusicBeatState
 		FlxTween.tween(FlxG.camera, {zoom: 1.3}, (Conductor.stepCrochet * 4 / 1000), {ease: FlxEase.elasticInOut});
 	}
 
+	function funnitweenCamIn():Void
+	{
+		FlxTween.tween(FlxG.camera, { zoom: 0.6 }, 0.1, {ease: FlxEase.elasticInOut});
+	}
+
 	override function openSubState(SubState:FlxSubState)
 	{
 		if (paused)
@@ -2854,6 +2869,12 @@ class PlayState extends MusicBeatState
 					case 'scoundrel':
 						camFollow.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
 						camFollow.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 1.75);
+					case 'kingofshells':
+						camFollow.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 5);
+						camFollow.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 5);
+					case 'kingofshells?':
+						camFollow.x = dad.getMidpoint().x + 300 + (dad.getMidpoint().x / 2.25);
+						camFollow.y = dad.getMidpoint().y - 400 + (dad.getMidpoint().y / 2.25);
 				}
 			}
 
@@ -3143,6 +3164,11 @@ class PlayState extends MusicBeatState
 					// Accessing the animation name directly to play it
 					var singData:Int = Std.int(Math.abs(daNote.noteData));
 					dad.playAnim('sing' + dataSuffix[singData] + altAnim, true);
+
+					// trace(curSong);
+					if (curSong == 'size up your enemy') {
+						funnitweenCamIn();
+					}
 
 					if (FlxG.save.data.cpuStrums)
 					{

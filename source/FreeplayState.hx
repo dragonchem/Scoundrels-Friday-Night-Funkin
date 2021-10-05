@@ -92,6 +92,9 @@ class FreeplayState extends MusicBeatState
 			FreeplayState.loadDiff(2,format,meta.songName,diffs);
 			FreeplayState.songData.set(meta.songName,diffs);
 			trace('loaded diffs for ' + meta.songName);
+			if (meta.songName == 'Size Up Your Enemy') {
+				trace(diffs.length);
+			}
 
 		}
 
@@ -443,6 +446,8 @@ class FreeplayState extends MusicBeatState
 		combo = Highscore.getCombo(songHighscore, curDifficulty);
 		// lerpScore = 0;
 		#end
+
+		trace(songData.get(songs[curSelected].songName)[curDifficulty] == null);
 
 		diffCalcText.text = 'RATING: ${DiffCalc.CalculateDiff(songData.get(songs[curSelected].songName)[curDifficulty])}';
 		

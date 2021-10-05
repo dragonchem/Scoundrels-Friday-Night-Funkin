@@ -26,6 +26,7 @@ class DiffCalc
         trace('calcuilafjwaf');
         // cleaned notes
         var cleanedNotes:Array<SmallNote> = [];
+        trace(song.notes == null);
 
         if (song.notes == null)
             return 0.0;
