@@ -45,15 +45,15 @@ class HealthIcon extends FlxSprite
 		animation.add('parents-christmas', [17, 18], 0, false, isPlayer);
 		animation.add('monster', [19, 20], 0, false, isPlayer);
 		animation.add('monster-christmas', [19, 20], 0, false, isPlayer);
-		animation.add('kitten', [24, 25], 0, false, isPlayer);
-		animation.add('b0llet', [24, 25], 0, false, isPlayer);
-		animation.add('alm', [24, 25], 0, false, isPlayer);
-		animation.add('duo', [24, 25], 0, false, isPlayer);
-		animation.add('chantley', [24, 25], 0, false, isPlayer);
-		animation.add('cuttle', [24, 25], 0, false, isPlayer);
-		animation.add('scoundrel', [24, 25], 0, false, isPlayer);
-		animation.add('kingofshells', [24, 25], 0, false, isPlayer);
-		animation.add('kingofshells?', [24, 25], 0, false, isPlayer);
+		animation.add('kitten', [26, 27], 0, false, isPlayer);
+		animation.add('b0llet', [28, 29], 0, false, isPlayer);
+		animation.add('alm', [32, 33], 0, false, isPlayer);
+		animation.add('duo', [30, 31], 0, false, isPlayer);
+		animation.add('chantley', [36, 37], 0, false, isPlayer);
+		animation.add('cuttle', [34, 35], 0, false, isPlayer);
+		animation.add('scoundrel', [38, 39], 0, false, isPlayer);
+		animation.add('kingofshells', [40, 41], 0, false, isPlayer);
+		animation.add('kingofshells?', [40, 41], 0, false, isPlayer);
 		animation.play(char);
 
 		switch(char)
