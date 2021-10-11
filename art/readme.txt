@@ -6,7 +6,7 @@ ___  ________  /   _____/ ____  ____  __ __  ____    __| _/______   ____ |  |   
           \/          \/     \/                 \/      \/             \/          \/ 
 ______________________________________________________________________________________
 
-Disclaimer! The OST videos of Life Will Change, Ram Ranch and Running in the Nineties have become copyright claimed, include them in content at your own risk.
+Disclaimer! The OST videos of Life Will Change, Ram Ranch and an early version of Running in the Nineties (current version is not claimed) have become copyright claimed, include them in content at your own risk.
 
 This mod is a collection of various remixes made as a love letter to both FNF and the original material.
 

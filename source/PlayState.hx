@@ -2232,7 +2232,7 @@ class PlayState extends MusicBeatState
 
 	function funnitweenCamIn():Void
 	{
-		FlxTween.tween(FlxG.camera, { zoom: 0.6 }, 0.1, {ease: FlxEase.elasticInOut});
+		FlxTween.tween(FlxG.camera, { zoom: 0.75 }, 0.1, {ease: FlxEase.elasticInOut});
 	}
 
 	override function openSubState(SubState:FlxSubState)

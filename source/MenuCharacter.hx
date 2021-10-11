@@ -22,22 +22,22 @@ class CharacterSetting
 class MenuCharacter extends FlxSprite
 {
 	private static var settings:Map<String, CharacterSetting> = [
-		'bf' => new CharacterSetting(170, 80, 1.5, true),
-		'gf' => new CharacterSetting(240, 180, 1.5, true),
+		'bf' => new CharacterSetting(10, 0, 4.8, true),
+		'gf' => new CharacterSetting(80, 230, 3, true),
 		'dad' => new CharacterSetting(140, 220),
 		'spooky' => new CharacterSetting(20, 30),
 		'pico' => new CharacterSetting(0, 0, 1.0, true),
 		'mom' => new CharacterSetting(-30, 140, 0.85),
 		'parents-christmas' => new CharacterSetting(100, 130, 1.8),
 		'senpai' => new CharacterSetting(-40, -45, 1.4),
-		'kitten' => new CharacterSetting(120, 250, 0.95),
-		'b0llet' => new CharacterSetting(280, 200, 2.2),
-		'alm' => new CharacterSetting(280, 200, 2.2),
-		'duo' => new CharacterSetting(280, 200, 2.2),
-		'cuttle' => new CharacterSetting(280, 200, 2.2),
-		'chantley' => new CharacterSetting(280, 200, 2.2),
-		'scoundrel' => new CharacterSetting(280, 200, 2.2),
-		'kingofshells' => new CharacterSetting(280, 200, 2.2)
+		'kitten' => new CharacterSetting(-30, 300, 2),
+		'b0llet' => new CharacterSetting(120, 260, 5),
+		'alm' => new CharacterSetting(20, 320, 2.2),
+		'duo' => new CharacterSetting(40, 350, 2.8),
+		'cuttle' => new CharacterSetting(20, 300, 2.4),
+		'chantley' => new CharacterSetting(20, 300, 2.4),
+		'scoundrel' => new CharacterSetting(60, 260, 3.4),
+		'kingofshells' => new CharacterSetting(20, 340, 1.8)
 	];
 
 	private var flipped:Bool = false;
@@ -67,7 +67,7 @@ class MenuCharacter extends FlxSprite
 		animation.addByPrefix('cuttle', "Cuttle", 24);
 		animation.addByPrefix('chantley', "Chantley", 24);
 		animation.addByPrefix('scoundrel', "Scoundrel", 24);
-		animation.addByPrefix('kingofshells', "Kitten", 24);
+		animation.addByPrefix('kingofshells', "KOS", 24);
 
 		setGraphicSize(Std.int(width * scale));
 		updateHitbox();
