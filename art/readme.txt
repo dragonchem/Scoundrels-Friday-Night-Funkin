@@ -10,6 +10,9 @@ Disclaimer! The OST videos of Life Will Change, Ram Ranch and an early version o
 
 This mod is a collection of various remixes made as a love letter to both FNF and the original material.
 
+We have 8 weeks with 8 characters, mostly representations of ourselves through our tf2 loadouts.
+There's 37 songs, and maybe a few surprises.
+
 Note: This mod was made by a group of inexperienced friends for fun. We had no previous experience with music making, a single programmer with no experience in HaxeFlixel and an artist who had never worked in this style before.
 
 The OST can be found here:
