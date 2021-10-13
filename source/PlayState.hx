@@ -896,6 +896,33 @@ class PlayState extends MusicBeatState
 						bg.active = false;
 						add(bg);
 					}
+				case 'train':
+					{
+						defaultCamZoom = 0.8;
+						curStage = 'train';
+						var bg:FlxSprite = new FlxSprite(-650, -575).loadGraphic(Paths.image('stages/train/BG'));
+						if(FlxG.save.data.antialiasing)
+							{
+								bg.antialiasing = true;
+							}
+						bg.scrollFactor.set(1.2, 1);
+						add(bg);
+						var mg:FlxSprite = new FlxSprite(-650, -575).loadGraphic(Paths.image('stages/train/MIDDLE'));
+						if(FlxG.save.data.antialiasing)
+							{
+								mg.antialiasing = true;
+							}
+						mg.scrollFactor.set(1.2, 1);
+						trace(bg.scrollFactor);
+						add(mg);
+						var fg:FlxSprite = new FlxSprite(-650, 580).loadGraphic(Paths.image('stages/train/FG'));
+						if(FlxG.save.data.antialiasing)
+							{
+								fg.antialiasing = true;
+							}
+						fg.scrollFactor.set(0.8, 1);
+						add(fg);
+					}
 				default:
 					{
 						defaultCamZoom = 0.7;
@@ -1848,7 +1875,7 @@ class PlayState extends MusicBeatState
 			#end
 		}
 
-		trace(PlayState.SONG.instVolume);
+		// trace(PlayState.SONG.instVolume);
 		if (PlayState.SONG.instVolume == null) {
 			PlayState.SONG.instVolume = 1;
 		}
@@ -2232,7 +2259,7 @@ class PlayState extends MusicBeatState
 
 	function funnitweenCamIn():Void
 	{
-		FlxTween.tween(FlxG.camera, { zoom: 0.75 }, 0.1, {ease: FlxEase.elasticInOut});
+		FlxTween.tween(FlxG.camera, { zoom: 0.75 }, 0.05, {ease: FlxEase.elasticInOut});
 	}
 
 	override function openSubState(SubState:FlxSubState)
@@ -3908,7 +3935,7 @@ class PlayState extends MusicBeatState
 			{
 				if (daNote.isSustainNote && daNote.canBeHit && daNote.mustPress && holdArray[daNote.noteData] && daNote.sustainActive)
 				{
-					trace(daNote.sustainActive);
+					// trace(daNote.sustainActive);
 					goodNoteHit(daNote);
 				}
 			});
