@@ -900,19 +900,19 @@ class PlayState extends MusicBeatState
 					{
 						defaultCamZoom = 0.8;
 						curStage = 'train';
-						var bg:FlxSprite = new FlxSprite(-650, -575).loadGraphic(Paths.image('stages/train/BG'));
+						var bg:FlxSprite = new FlxSprite(-800, -575).loadGraphic(Paths.image('stages/train/BG'));
 						if(FlxG.save.data.antialiasing)
 							{
 								bg.antialiasing = true;
 							}
-						bg.scrollFactor.set(1.2, 1);
+						bg.scrollFactor.set(0.6, 1);
 						add(bg);
-						var mg:FlxSprite = new FlxSprite(-650, -575).loadGraphic(Paths.image('stages/train/MIDDLE'));
+						var mg:FlxSprite = new FlxSprite(-800, -575).loadGraphic(Paths.image('stages/train/MIDDLE'));
 						if(FlxG.save.data.antialiasing)
 							{
 								mg.antialiasing = true;
 							}
-						mg.scrollFactor.set(1.2, 1);
+						mg.scrollFactor.set(0.6, 1);
 						trace(bg.scrollFactor);
 						add(mg);
 						var fg:FlxSprite = new FlxSprite(-650, 580).loadGraphic(Paths.image('stages/train/FG'));
@@ -920,7 +920,59 @@ class PlayState extends MusicBeatState
 							{
 								fg.antialiasing = true;
 							}
-						fg.scrollFactor.set(0.8, 1);
+						fg.scrollFactor.set(0.85, 1);
+						add(fg);
+					}
+				case 'train-again':
+					{
+						defaultCamZoom = 0.6;
+						curStage = 'train-again';
+						var bg:FlxSprite = new FlxSprite(-650, -300).loadGraphic(Paths.image('stages/train-again/BG'));
+						if(FlxG.save.data.antialiasing)
+							{
+								bg.antialiasing = true;
+							}
+						bg.scrollFactor.set(0.6, 0.65);
+						add(bg);
+						var mg:FlxSprite = new FlxSprite(-650, -300).loadGraphic(Paths.image('stages/train-again/MIDDLE'));
+						if(FlxG.save.data.antialiasing)
+							{
+								mg.antialiasing = true;
+							}
+						mg.scrollFactor.set(0.8, 0.80);
+						add(mg);
+						var fg:FlxSprite = new FlxSprite(-600, 750).loadGraphic(Paths.image('stages/train-again/FG'));
+						if(FlxG.save.data.antialiasing)
+							{
+								fg.antialiasing = true;
+							}
+						fg.scrollFactor.set(1, 0.95);
+						add(fg);
+					}
+				case 'train-again-2':
+					{
+						defaultCamZoom = 0.6;
+						curStage = 'train-again-2';
+						var bg:FlxSprite = new FlxSprite(-650, -300).loadGraphic(Paths.image('stages/train-again-2/BG'));
+						if(FlxG.save.data.antialiasing)
+							{
+								bg.antialiasing = true;
+							}
+						bg.scrollFactor.set(0.6, 0.65);
+						add(bg);
+						var mg:FlxSprite = new FlxSprite(-650, -300).loadGraphic(Paths.image('stages/train-again-2/MIDDLE'));
+						if(FlxG.save.data.antialiasing)
+							{
+								mg.antialiasing = true;
+							}
+						mg.scrollFactor.set(0.8, 0.80);
+						add(mg);
+						var fg:FlxSprite = new FlxSprite(-600, 750).loadGraphic(Paths.image('stages/train-again-2/FG'));
+						if(FlxG.save.data.antialiasing)
+							{
+								fg.antialiasing = true;
+							}
+						fg.scrollFactor.set(1, 0.95);
 						add(fg);
 					}
 				default:
@@ -1057,7 +1109,7 @@ class PlayState extends MusicBeatState
 				camPos.y = dad.getMidpoint().y + 100 + (dad.getMidpoint().y / 1.75);
 			case 'kitten':
 				dad.x -= 250;
-				dad.y -= 750;
+				dad.y -= 760;
 				camPos.x = dad.getMidpoint().x + 100;
 				camPos.y = dad.getMidpoint().y - 25;
 			case 'alm':

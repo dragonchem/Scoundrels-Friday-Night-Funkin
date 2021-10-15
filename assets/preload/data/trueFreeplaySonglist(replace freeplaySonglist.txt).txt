@@ -1,0 +1,41 @@
+Life Will Change:kitten:1
+Take Over:kitten:1
+Dance:kitten:1
+Seaside Hill:cuttle:2
+Chemical Plant:cuttle:2
+Mirage Saloon:cuttle:2
+Popple and Rookie:kingofshells:3
+Never Let Up:kingofshells:3
+In The Final:kingofshells:3
+Cammy:b0llet:4
+Claw:b0llet:4
+Blanka:b0llet:4
+Boxer:b0llet:4
+Mantis Lords:alm:5
+Hornet:alm:5
+Sealed Vessel:alm:5
+Main Menu:duo:6
+Tick Tock Clock:duo:6
+Delfino Square:duo:6
+Waluigi Pinball:duo:6
+Crocodile Cacophony:scoundrel:7
+Gear Getaway:scoundrel:7
+Gang Plank Galleon:scoundrel:7
+Running in the Nineties:chantley:8
+Ram Ranch:chantley:8
+Hell:chantley:8
+Beneath The Mask:kitten:9
+Gravity Falls:alm:9
+Destruction Dance:b0llet:9
+Size Up Your Enemy:kingofshells?:9
+Ultimate Battle:alm:9
+Cornered:kitten:9
+Fist Bump:cuttle:9
+Athletic:kitten:9
+Betus Blues:b0llet:9
+Final Battle:scoundrel:9
+Stickerbush Symphony:scoundrel:9
+Alex:b0llet:10
+Build Our Machine:kitten:10
+Gritzy Desert:kingofshells:10
+Tutorial:bf-pixel:9
