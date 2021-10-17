@@ -30,7 +30,7 @@ class StoryMenuState extends MusicBeatState
 		['Popple and Rookie', 'Never Let Up', 'In The Final'],
 		['Cammy', 'Claw', 'Blanka', 'Boxer'],
 		['Mantis Lords', 'Hornet', 'Sealed Vessel'],
-		['Main Menu', 'Tick Tock Clock', 'Delphino Square', 'Waluigi Pinball'],
+		['Main Menu', 'Tick Tock Clock', 'Delfino Square', 'Waluigi Pinball'],
 		['Crocodile Cacophony', 'Gear Getaway', 'Gang Plank Galleon'],
 		['Running in the Nineties', 'Ram Ranch', 'Hell']
 	];

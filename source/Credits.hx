@@ -54,7 +54,7 @@ class Credits extends MusicBeatState
         credits.push(new Credit('art assets by', false, '', ''));
         credits.push(new Credit('KingOfShells', true, 'https://twitter.com/kingofshells', "KingOfShells's Twitter"));
         credits.push(new Credit('', false, '', ''));
-        credits.push(new Credit('art references and', false, '', ''));
+        credits.push(new Credit('art references', false, '', ''));
         credits.push(new Credit('BOllet', true, 'https://www.youtube.com/channel/UCX6ts-wfdL1eNWySIgZZeUQ', "B0llet's YouTube channel"));
         credits.push(new Credit('', false, '', ''));
         credits.push(new Credit('maps and music by', false, '', ''));
