@@ -151,8 +151,8 @@ class TitleState extends MusicBeatState
 			// FlxG.sound.list.add(music);
 			// music.play();
 			FlxG.sound.playMusic(Paths.music('TF2 theme'), 1);
-			FlxG.sound.volume = 1;
-			FlxG.sound.changeVolume(-0.5);
+			// FlxG.sound.volume = 1;
+			FlxG.sound.changeVolume(0);
 			bRunning = true;
 
 			FlxG.sound.music.fadeIn(4, 0, 0.7);

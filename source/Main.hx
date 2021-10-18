@@ -83,7 +83,7 @@ class Main extends Sprite
 		game = new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen);
 		#end
 		addChild(game);
-		FlxG.sound.changeVolume(-0.5);
+		FlxG.sound.changeVolume(0);
 		#if windows
 		DiscordClient.initialize();
 

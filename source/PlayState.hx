@@ -975,6 +975,65 @@ class PlayState extends MusicBeatState
 						fg.scrollFactor.set(1, 0.95);
 						add(fg);
 					}
+				case 'cave':
+					{
+						defaultCamZoom = 0.9;
+						curStage = 'cave';
+						var bg:FlxSprite = new FlxSprite(-650, -300).loadGraphic(Paths.image('stages/cave/BG'));
+						if(FlxG.save.data.antialiasing)
+							{
+								bg.antialiasing = true;
+							}
+						bg.scrollFactor.set(0.6, 0.65);
+						add(bg);
+						var mg:FlxSprite = new FlxSprite(-250, -300).loadGraphic(Paths.image('stages/cave/MIDDLE'));
+						if(FlxG.save.data.antialiasing)
+							{
+								mg.antialiasing = true;
+							}
+						mg.scrollFactor.set(0.8, 0.80);
+						add(mg);
+						var fg:FlxSprite = new FlxSprite(-775, 400).loadGraphic(Paths.image('stages/cave/FG'));
+						if(FlxG.save.data.antialiasing)
+							{
+								fg.antialiasing = true;
+							}
+						fg.scrollFactor.set(1, 0.95);
+						add(fg);
+					}
+				case 'sea':
+					{
+						defaultCamZoom = 0.7;
+						curStage = 'sea';
+						var bg:FlxSprite = new FlxSprite(-300, -200).loadGraphic(Paths.image('stages/sea/BG'));
+						if(FlxG.save.data.antialiasing)
+							{
+								bg.antialiasing = true;
+							}
+						bg.scrollFactor.set(0.6, 0.65);
+						add(bg);
+						var fg:FlxSprite = new FlxSprite(-700, 600).loadGraphic(Paths.image('stages/sea/Beach'));
+						if(FlxG.save.data.antialiasing)
+							{
+								fg.antialiasing = true;
+							}
+						fg.scrollFactor.set(1, 0.95);
+						add(fg);
+						var mg:FlxSprite = new FlxSprite(-700, -300).loadGraphic(Paths.image('stages/sea/Middle'));
+						if(FlxG.save.data.antialiasing)
+							{
+								mg.antialiasing = true;
+							}
+						mg.scrollFactor.set(1, 0.95);
+						add(mg);
+						// var tree:FlxSprite = new FlxSprite(-500, -500).loadGraphic(Paths.image('stages/sea/BigTree'));
+						// if(FlxG.save.data.antialiasing)
+						// 	{
+						// 		tree.antialiasing = true;
+						// 	}
+						// tree.scrollFactor.set(1, 0.95);
+						// add(tree);
+					}
 				default:
 					{
 						defaultCamZoom = 0.7;
@@ -1113,10 +1172,10 @@ class PlayState extends MusicBeatState
 				camPos.x = dad.getMidpoint().x + 100;
 				camPos.y = dad.getMidpoint().y - 25;
 			case 'alm':
-				dad.x -= 300;
+				dad.x -= 250;
 				dad.y -= 450;
 				camPos.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 2.25);
-				camPos.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 2.25);
+				camPos.y = dad.getMidpoint().y + 300 + (dad.getMidpoint().y / 2.25);
 			case 'duo':
 				dad.x -= 250;
 				dad.y -= 650;
@@ -1133,7 +1192,7 @@ class PlayState extends MusicBeatState
 				dad.x -= 300;
 				dad.y -= 500;
 				camPos.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
-				camPos.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 1.75);
+				camPos.y = dad.getMidpoint().y + 350 + (dad.getMidpoint().y / 1.75);
 			case 'scoundrel':
 				dad.x -= 500;
 				dad.y -= 300;
@@ -2935,7 +2994,7 @@ class PlayState extends MusicBeatState
 						camFollow.y = dad.getMidpoint().y - 25;
 					case 'alm':
 						camFollow.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
-						camFollow.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 1.75);
+						camFollow.y = dad.getMidpoint().y + 300 + (dad.getMidpoint().y / 1.75);
 					case 'duo':
 						camFollow.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
 						camFollow.y = dad.getMidpoint().y + 700 + (dad.getMidpoint().y / 1.75);
@@ -2944,7 +3003,7 @@ class PlayState extends MusicBeatState
 						camFollow.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 1.75);
 					case 'cuttle':
 						camFollow.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
-						camFollow.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 1.75);
+						camFollow.y = dad.getMidpoint().y + 350 + (dad.getMidpoint().y / 1.75);
 					case 'scoundrel':
 						camFollow.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
 						camFollow.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 1.75);

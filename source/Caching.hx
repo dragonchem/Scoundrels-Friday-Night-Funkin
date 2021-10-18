@@ -49,6 +49,7 @@ class Caching extends MusicBeatState
 
 	override function create()
 	{
+		FlxG.sound.volume = 0.5;
 
 		FlxG.save.bind('funkin', 'ninjamuffin99');
 
