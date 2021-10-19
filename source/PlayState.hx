@@ -1034,6 +1034,32 @@ class PlayState extends MusicBeatState
 						// tree.scrollFactor.set(1, 0.95);
 						// add(tree);
 					}
+				case 'kart':
+					{
+						defaultCamZoom = 0.7;
+						curStage = 'kart';
+						var bg:FlxSprite = new FlxSprite(-650, -100).loadGraphic(Paths.image('stages/kart/BG'));
+						if(FlxG.save.data.antialiasing)
+							{
+								bg.antialiasing = true;
+							}
+						bg.scrollFactor.set(0.4, 0.65);
+						add(bg);
+						var mg:FlxSprite = new FlxSprite(-500, -65).loadGraphic(Paths.image('stages/kart/Mid'));
+						if(FlxG.save.data.antialiasing)
+							{
+								mg.antialiasing = true;
+							}
+						mg.scrollFactor.set(0.7, 0.80);
+						add(mg);
+						var fg:FlxSprite = new FlxSprite(-650, 300).loadGraphic(Paths.image('stages/kart/FG'));
+						if(FlxG.save.data.antialiasing)
+							{
+								fg.antialiasing = true;
+							}
+						fg.scrollFactor.set(1, 0.95);
+						add(fg);
+					}
 				default:
 					{
 						defaultCamZoom = 0.7;
@@ -1180,7 +1206,7 @@ class PlayState extends MusicBeatState
 				dad.x -= 250;
 				dad.y -= 650;
 				camPos.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
-				camPos.y = dad.getMidpoint().y + 700 + (dad.getMidpoint().y / 1.75);
+				camPos.y = dad.getMidpoint().y + 600 + (dad.getMidpoint().y / 1.75);
 				// camPos.x = dad.getMidpoint().x + (dad.getMidpoint().x / 1.75);
 				// camPos.y = dad.getMidpoint().y + (dad.getMidpoint().y / 1.75);
 			case 'chantley':
@@ -2997,7 +3023,7 @@ class PlayState extends MusicBeatState
 						camFollow.y = dad.getMidpoint().y + 300 + (dad.getMidpoint().y / 1.75);
 					case 'duo':
 						camFollow.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
-						camFollow.y = dad.getMidpoint().y + 700 + (dad.getMidpoint().y / 1.75);
+						camFollow.y = dad.getMidpoint().y + 600 + (dad.getMidpoint().y / 1.75);
 					case 'chantley':
 						camFollow.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
 						camFollow.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 1.75);
