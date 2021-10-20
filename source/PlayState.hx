@@ -1060,6 +1060,103 @@ class PlayState extends MusicBeatState
 						fg.scrollFactor.set(1, 0.95);
 						add(fg);
 					}
+				case 'RAM-RANCH':
+					{
+						defaultCamZoom = 0.7;
+						curStage = 'RAM-RANCH';
+						var bg:FlxSprite = new FlxSprite(-450, -200).loadGraphic(Paths.image('stages/RAM-RANCH/BG'));
+						if(FlxG.save.data.antialiasing)
+							{
+								bg.antialiasing = true;
+							}
+						bg.scrollFactor.set(0.4, 0.65);
+						add(bg);
+						var mg:FlxSprite = new FlxSprite(-400, 135).loadGraphic(Paths.image('stages/RAM-RANCH/Middle'));
+						if(FlxG.save.data.antialiasing)
+							{
+								mg.antialiasing = true;
+							}
+						mg.scrollFactor.set(0.7, 0.80);
+						add(mg);
+						var fg:FlxSprite = new FlxSprite(-650, 500).loadGraphic(Paths.image('stages/RAM-RANCH/FG'));
+						if(FlxG.save.data.antialiasing)
+							{
+								fg.antialiasing = true;
+							}
+						fg.scrollFactor.set(1, 0.95);
+						add(fg);
+					}
+				case 'hut':
+					{
+						defaultCamZoom = 0.7;
+						curStage = 'hut';
+						var mg:FlxSprite = new FlxSprite(-550, 350).loadGraphic(Paths.image('stages/hut/Ground'));
+						if(FlxG.save.data.antialiasing)
+							{
+								mg.antialiasing = true;
+							}
+						mg.scrollFactor.set(1, 0.95);
+						add(mg);
+						var bg:FlxSprite = new FlxSprite(-550, -250).loadGraphic(Paths.image('stages/hut/BG'));
+						if(FlxG.save.data.antialiasing)
+							{
+								bg.antialiasing = true;
+							}
+						mg.scrollFactor.set(1, 0.95);
+						add(bg);
+					}
+				case 'park':
+					{
+						defaultCamZoom = 0.7;
+						curStage = 'park';
+						var bg:FlxSprite = new FlxSprite(-1250, -975).loadGraphic(Paths.image('stages/park/BG'));
+						if(FlxG.save.data.antialiasing)
+							{
+								bg.antialiasing = true;
+							}
+						bg.scrollFactor.set(0.4, 0.65);
+						add(bg);
+						var fg:FlxSprite = new FlxSprite(-1250, 300).loadGraphic(Paths.image('stages/park/Ground'));
+						if(FlxG.save.data.antialiasing)
+							{
+								fg.antialiasing = true;
+							}
+						fg.scrollFactor.set(1, 0.95);
+						add(fg);
+						var mg:FlxSprite = new FlxSprite(-1250, 200).loadGraphic(Paths.image('stages/park/Middle'));
+						if(FlxG.save.data.antialiasing)
+							{
+								mg.antialiasing = true;
+							}
+						mg.scrollFactor.set(1, 0.95);
+						add(mg);
+					}
+				case 'park-L':
+					{
+						defaultCamZoom = 0.6;
+						curStage = 'park';
+						var bg:FlxSprite = new FlxSprite(-1200, -975).loadGraphic(Paths.image('stages/park-L/BG'));
+						if(FlxG.save.data.antialiasing)
+							{
+								bg.antialiasing = true;
+							}
+						bg.scrollFactor.set(0.4, 0.95);
+						add(bg);
+						var fg:FlxSprite = new FlxSprite(-1200, 300).loadGraphic(Paths.image('stages/park/Ground'));
+						if(FlxG.save.data.antialiasing)
+							{
+								fg.antialiasing = true;
+							}
+						fg.scrollFactor.set(1, 0.95);
+						add(fg);
+						var mg:FlxSprite = new FlxSprite(-1200, 200).loadGraphic(Paths.image('stages/park/Middle'));
+						if(FlxG.save.data.antialiasing)
+							{
+								mg.antialiasing = true;
+							}
+						mg.scrollFactor.set(1, 0.95);
+						add(mg);
+					}
 				default:
 					{
 						defaultCamZoom = 0.7;
@@ -1223,7 +1320,7 @@ class PlayState extends MusicBeatState
 				dad.x -= 500;
 				dad.y -= 300;
 				camPos.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
-				camPos.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 1.75);
+				camPos.y = dad.getMidpoint().y + 150 + (dad.getMidpoint().y / 1.75);
 			case 'kingofshells':
 				dad.x -= 300;
 				dad.y -= 300;
@@ -2396,7 +2493,7 @@ class PlayState extends MusicBeatState
 
 	function funnitweenCamIn():Void
 	{
-		FlxTween.tween(FlxG.camera, { zoom: 0.75 }, 0.05, {ease: FlxEase.elasticInOut});
+		FlxTween.tween(FlxG.camera, { zoom: 0.65 }, 0.05, {ease: FlxEase.elasticInOut});
 	}
 
 	override function openSubState(SubState:FlxSubState)
@@ -3032,7 +3129,7 @@ class PlayState extends MusicBeatState
 						camFollow.y = dad.getMidpoint().y + 350 + (dad.getMidpoint().y / 1.75);
 					case 'scoundrel':
 						camFollow.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 1.75);
-						camFollow.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 1.75);
+						camFollow.y = dad.getMidpoint().y + 150 + (dad.getMidpoint().y / 1.75);
 					case 'kingofshells':
 						camFollow.x = dad.getMidpoint().x + 500 + (dad.getMidpoint().x / 5);
 						camFollow.y = dad.getMidpoint().y + 250 + (dad.getMidpoint().y / 5);
