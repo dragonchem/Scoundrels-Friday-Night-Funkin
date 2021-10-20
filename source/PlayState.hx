@@ -1069,14 +1069,14 @@ class PlayState extends MusicBeatState
 							{
 								bg.antialiasing = true;
 							}
-						bg.scrollFactor.set(0.4, 0.65);
+						bg.scrollFactor.set(1, 0.95);
 						add(bg);
 						var mg:FlxSprite = new FlxSprite(-400, 135).loadGraphic(Paths.image('stages/RAM-RANCH/Middle'));
 						if(FlxG.save.data.antialiasing)
 							{
 								mg.antialiasing = true;
 							}
-						mg.scrollFactor.set(0.7, 0.80);
+						mg.scrollFactor.set(1, 0.95);
 						add(mg);
 						var fg:FlxSprite = new FlxSprite(-650, 500).loadGraphic(Paths.image('stages/RAM-RANCH/FG'));
 						if(FlxG.save.data.antialiasing)
@@ -1488,8 +1488,9 @@ class PlayState extends MusicBeatState
 		add(healthBar);
 	
 		var text = '';
-		
-		for (item in SONG.song.split(' ')) {
+		var r = ~/ |-/g;
+
+		for (item in r.split(SONG.song)) {
 			trace(SONG.song);
 			text += item.charAt(0).toUpperCase() + item.substr(1) + ' ';
 		}
@@ -3783,7 +3784,9 @@ class PlayState extends MusicBeatState
 					PlayState.SONG = Song.loadFromJson(poop, PlayState.storyPlaylist[0]);
 					FlxG.sound.music.stop();
 
-					LoadingState.loadAndSwitchState(new PlayState());
+					var playstate = new PlayState();
+					playstate.cannotDie = cannotDie;
+					LoadingState.loadAndSwitchState(playstate, true);
 				}
 			}
 			else
