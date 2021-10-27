@@ -32,7 +32,8 @@ class StoryMenuState extends MusicBeatState
 		['Mantis Lords', 'Hornet', 'Sealed Vessel'],
 		['Main Menu', 'Tick Tock Clock', 'Delfino Square', 'Waluigi Pinball'],
 		['Crocodile Cacophony', 'Gear Getaway', 'Gang Plank Galleon'],
-		['Running in the Nineties', 'Ram Ranch', 'Hell']
+		['Running in the Nineties', 'Ram Ranch', 'Hell'],
+		['Beneath The Mask', 'Gravity Falls', 'Destruction Dance', 'Size Up Your Enemy', 'Ultimate Battle', 'Cornered', 'Fist Bump', 'Athletic', 'Betus Blues', 'Final Battle', 'Stickerbush Symphony']
 	];
 	var curDifficulty:Int = 2;
 
@@ -47,6 +48,7 @@ class StoryMenuState extends MusicBeatState
 		['duo', 'bf', 'gf'],
 		['scoundrel', 'bf', 'gf'],
 		['chantley', 'bf', 'gf'],
+		['scoundrel', 'bf', 'gf'],
 	];
 
 	var babymode:FlxText;
@@ -59,7 +61,8 @@ class StoryMenuState extends MusicBeatState
 		['alm'],
 		['kitten', '&', 'b0llet'],
 		['scoundrel'],
-		['chantley']
+		['chantley'],
+		['bonus'],
 	];
 
 	var diffHeight:Float;
@@ -91,6 +94,9 @@ class StoryMenuState extends MusicBeatState
 		[
 			[0x00000000, 0xFF000060]
 		],
+		[
+			[0x00000000, 0xFFFFFFFF]
+		],
 	];
 
 	var weekNames:Array<String> = [
@@ -101,7 +107,8 @@ class StoryMenuState extends MusicBeatState
 		"horny for hornet",
 		"baby game connoisseurs",
 		"the horny gorilla",
-		"clown."
+		"clown.",
+		"extra songs"
 	];
 
 	var txtWeekTitle:FlxText;
